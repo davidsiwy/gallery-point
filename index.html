@@ -90,6 +90,10 @@ section{padding:clamp(80px,13vh,170px) var(--pad)}
 #hero.open .slot.s3{width:.74em;transition-delay:.38s}
 #hero.open .slot img{transform:scale(1)}
 .portrait-live{height:.92em;width:auto;margin:0 .06em;flex:none;align-self:center}
+.portrait-live .psk{display:none;fill:none;stroke:var(--brick);stroke-width:2.4;stroke-linecap:round}
+@keyframes gpdraw{to{stroke-dashoffset:0}}
+@keyframes gpfill{to{opacity:1}}
+@keyframes gpghost{to{opacity:.3;transform:translate(2.5px,3px) rotate(-1.2deg)}}
 .portrait-live image{opacity:0;transition:opacity 1.4s ease}
 .portrait-live image.show{opacity:1}
 .hero-sub{text-align:center;margin-top:5.5vh;font-size:clamp(1.05rem,1.6vw,1.35rem);font-style:italic;font-weight:340}
@@ -292,6 +296,15 @@ header nav{display:none}
 .slot{display:none}
 .wordmark{flex-direction:column;white-space:normal;gap:.1em;font-size:clamp(3rem,17vw,4.4rem);line-height:1.02}
 .portrait-live{height:auto;width:min(44vw,170px);margin:.08em 0}
+.portrait-live .psk{display:block;stroke-dasharray:1;stroke-dashoffset:1;transform-box:fill-box;transform-origin:center}
+.portrait-live .pblack{opacity:0}
+#hero.in .portrait-live .psk{animation:gpdraw 1.25s cubic-bezier(.4,0,.2,1) .5s forwards,gpghost .8s ease 2.05s forwards}
+#hero.in .portrait-live .pblack{animation:gpfill .9s ease 1.65s forwards}
+.wordmark .w{opacity:0;transform:translateY(14px);transition:opacity .9s ease,transform .9s cubic-bezier(.22,.8,.2,1)}
+.wordmark .w:first-child{transform:translateY(-14px)}
+#hero.in .wordmark .w{opacity:1;transform:none}
+#hero.in .wordmark .w:first-child{transition-delay:.05s}
+#hero.in .wordmark .w:last-child{transition-delay:.2s}
 #hero.open .wm-scale{transform:none}
 .hero-sub .anno{right:0;top:-1.7em}
 .hero-meta{grid-template-columns:1fr}
@@ -307,6 +320,9 @@ header nav{display:none}
 }
 @media (prefers-reduced-motion:reduce){
 *,*::before,*::after{animation:none !important;transition:none !important}
+.portrait-live .pblack{opacity:1 !important}
+.portrait-live .psk{display:none !important}
+.wordmark .w{opacity:1;transform:none}
 .rv{opacity:1;transform:none}
 .wordmark{opacity:1;transform:none}
 svg.draw path{stroke-dashoffset:0 !important}
@@ -353,12 +369,13 @@ svg.draw path{stroke-dashoffset:0 !important}
       <span class="slot s1 ph" aria-hidden="true"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=900&auto=format&fit=crop" alt="" onerror="imgFail(this)"></span>
       <svg class="portrait-live" viewBox="0 0 78 100" aria-hidden="true">
         <defs><clipPath id="pclip"><path d="M 1.1425 2.7752 L 0.5879 0.4762 H 76.7526 L 76.5677 1.0509 L 76.1980 2.9668 L 75.8282 4.8826 L 75.4585 6.7984 L 75.0888 8.7142 L 74.7190 10.6300 L 74.3493 12.5458 L 73.9796 14.4616 L 73.6099 16.3774 V 84.1973 L 73.9796 86.1131 L 74.3493 88.0290 L 74.7190 89.9448 L 75.0888 91.8606 L 75.4585 93.7764 L 75.8282 95.6924 L 76.1980 97.6076 L 76.5677 99.5238 H 0.7727 L 1.1425 97.6076 L 1.5122 95.6924 L 1.8819 93.7764 L 2.2517 91.8606 L 2.6214 89.9448 L 2.9911 88.0290 L 3.3609 86.1131 L 3.7306 84.1973 V 16.3774 L 3.3609 14.4616 L 2.9911 12.5458 L 2.6214 10.6300 L 2.2517 8.7142 L 1.8819 6.7984 L 1.5122 4.8826 L 1.1425 2.7752 Z"/></clipPath></defs>
-        <path d="M 1.1425 2.7752 L 0.5879 0.4762 H 76.7526 L 76.5677 1.0509 L 76.1980 2.9668 L 75.8282 4.8826 L 75.4585 6.7984 L 75.0888 8.7142 L 74.7190 10.6300 L 74.3493 12.5458 L 73.9796 14.4616 L 73.6099 16.3774 V 84.1973 L 73.9796 86.1131 L 74.3493 88.0290 L 74.7190 89.9448 L 75.0888 91.8606 L 75.4585 93.7764 L 75.8282 95.6924 L 76.1980 97.6076 L 76.5677 99.5238 H 0.7727 L 1.1425 97.6076 L 1.5122 95.6924 L 1.8819 93.7764 L 2.2517 91.8606 L 2.6214 89.9448 L 2.9911 88.0290 L 3.3609 86.1131 L 3.7306 84.1973 V 16.3774 L 3.3609 14.4616 L 2.9911 12.5458 L 2.6214 10.6300 L 2.2517 8.7142 L 1.8819 6.7984 L 1.5122 4.8826 L 1.1425 2.7752 Z" fill="#101010"/>
+        <path class="pblack" d="M 1.1425 2.7752 L 0.5879 0.4762 H 76.7526 L 76.5677 1.0509 L 76.1980 2.9668 L 75.8282 4.8826 L 75.4585 6.7984 L 75.0888 8.7142 L 74.7190 10.6300 L 74.3493 12.5458 L 73.9796 14.4616 L 73.6099 16.3774 V 84.1973 L 73.9796 86.1131 L 74.3493 88.0290 L 74.7190 89.9448 L 75.0888 91.8606 L 75.4585 93.7764 L 75.8282 95.6924 L 76.1980 97.6076 L 76.5677 99.5238 H 0.7727 L 1.1425 97.6076 L 1.5122 95.6924 L 1.8819 93.7764 L 2.2517 91.8606 L 2.6214 89.9448 L 2.9911 88.0290 L 3.3609 86.1131 L 3.7306 84.1973 V 16.3774 L 3.3609 14.4616 L 2.9911 12.5458 L 2.6214 10.6300 L 2.2517 8.7142 L 1.8819 6.7984 L 1.5122 4.8826 L 1.1425 2.7752 Z" fill="#101010"/>
         <g clip-path="url(#pclip)">
           <image class="pimg" href="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600&auto=format&fit=crop" width="78" height="100" preserveAspectRatio="xMidYMid slice"/>
           <image class="pimg" href="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=600&auto=format&fit=crop" width="78" height="100" preserveAspectRatio="xMidYMid slice"/>
           <image class="pimg" href="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=600&auto=format&fit=crop" width="78" height="100" preserveAspectRatio="xMidYMid slice"/>
         </g>
+        <path class="psk" d="M 1.1425 2.7752 L 0.5879 0.4762 H 76.7526 L 76.5677 1.0509 L 76.1980 2.9668 L 75.8282 4.8826 L 75.4585 6.7984 L 75.0888 8.7142 L 74.7190 10.6300 L 74.3493 12.5458 L 73.9796 14.4616 L 73.6099 16.3774 V 84.1973 L 73.9796 86.1131 L 74.3493 88.0290 L 74.7190 89.9448 L 75.0888 91.8606 L 75.4585 93.7764 L 75.8282 95.6924 L 76.1980 97.6076 L 76.5677 99.5238 H 0.7727 L 1.1425 97.6076 L 1.5122 95.6924 L 1.8819 93.7764 L 2.2517 91.8606 L 2.6214 89.9448 L 2.9911 88.0290 L 3.3609 86.1131 L 3.7306 84.1973 V 16.3774 L 3.3609 14.4616 L 2.9911 12.5458 L 2.6214 10.6300 L 2.2517 8.7142 L 1.8819 6.7984 L 1.5122 4.8826 L 1.1425 2.7752 Z" pathLength="1"/>
       </svg>
       <span class="slot s2 ph" aria-hidden="true"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=900&auto=format&fit=crop" alt="" onerror="imgFail(this)"></span>
       <span class="slot s3 ph" aria-hidden="true"><img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=900&auto=format&fit=crop" alt="" onerror="imgFail(this)"></span>
