@@ -24,10 +24,18 @@
 <style>
 :root{--portrait-uri:url("data:image/svg+xml,%3Csvg viewBox=%270 0 78 100%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath d=%27M 1.1425 2.7752 L 0.5879 0.4762 H 76.7526 L 76.5677 1.0509 L 76.1980 2.9668 L 75.8282 4.8826 L 75.4585 6.7984 L 75.0888 8.7142 L 74.7190 10.6300 L 74.3493 12.5458 L 73.9796 14.4616 L 73.6099 16.3774 V 84.1973 L 73.9796 86.1131 L 74.3493 88.0290 L 74.7190 89.9448 L 75.0888 91.8606 L 75.4585 93.7764 L 75.8282 95.6924 L 76.1980 97.6076 L 76.5677 99.5238 H 0.7727 L 1.1425 97.6076 L 1.5122 95.6924 L 1.8819 93.7764 L 2.2517 91.8606 L 2.6214 89.9448 L 2.9911 88.0290 L 3.3609 86.1131 L 3.7306 84.1973 V 16.3774 L 3.3609 14.4616 L 2.9911 12.5458 L 2.6214 10.6300 L 2.2517 8.7142 L 1.8819 6.7984 L 1.5122 4.8826 L 1.1425 2.7752 Z%27 fill=%27%23101010%27/%3E%3C/svg%3E")}
 
-:root{--wall:#FFFFFF;--mat:#FFFFFF;--stone:#EDEDEB;--graphite:#76746E;--ink:#101010;--brick:#A14E3C;
---accl:#EDEDEB;--accd:#A14E3C;
---serif:"Fraunces",Georgia,serif;--sans:"Inter",-apple-system,Helvetica,Arial,sans-serif;--hand:"Caveat",cursive;
---pad:clamp(20px,6vw,96px);--hairline:rgba(16,16,16,.14)}
+:root{--wall:#FFFFFF;--mat:#FFFFFF;--stone:#EBEBEB;--graphite:#878787;--ink:#0A0A0A;--brick:#705941;
+--accl:#EBEBEB;--accd:#705941;
+--serif:"Larken","Fraunces",Georgia,serif;--sans:"Saans","Inter",-apple-system,Helvetica,Arial,sans-serif;--hand:"Caveat",cursive;
+--pad:clamp(20px,6vw,96px);--hairline:rgba(10,10,10,.13)}
+/* Figma type system: Larken (display) + Saans (text). Both are licensed fonts; this site renders
+   Fraunces + Inter as the closest free stand-ins until the licensed webfonts are added. To use the
+   real fonts, host the .woff2 files in assets/fonts/ and uncomment:
+@font-face{font-family:"Larken";src:url("assets/fonts/Larken-Regular.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Larken";src:url("assets/fonts/Larken-Medium.woff2") format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Saans";src:url("assets/fonts/Saans-Regular.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Saans";src:url("assets/fonts/Saans-Medium.woff2") format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Saans";src:url("assets/fonts/Saans-Semibold.woff2") format("woff2");font-weight:600;font-display:swap} */
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:96px}
 body{font-family:var(--serif);font-optical-sizing:auto;background:var(--wall);color:var(--ink);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -41,7 +49,7 @@ button{font:inherit;background:none;border:none;cursor:pointer;color:inherit}
 .label{font-family:var(--sans);font-size:10.5px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--graphite)}
 .label b{color:var(--ink);font-weight:600}
 .on-dark .label{color:rgba(255,255,255,.55)}.on-dark .label b{color:#fff}
-h1,h2,h3{font-weight:380;line-height:.96;letter-spacing:-0.015em}
+h1,h2,h3{font-weight:380;line-height:.96;letter-spacing:-0.04em}
 .anno{font-family:var(--hand);color:var(--accd);font-size:clamp(1.15rem,1.8vw,1.5rem);line-height:1;white-space:nowrap}
 .rv{opacity:0;transform:translateY(28px);transition:opacity 1s ease var(--d,0s),transform 1s cubic-bezier(.22,.8,.2,1) var(--d,0s)}
 .rv.on{opacity:1;transform:none}
@@ -86,7 +94,7 @@ section{padding:clamp(80px,13vh,170px) var(--pad)}
 #hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:110px var(--pad) 40px;position:relative}
 .wm-scale{transition:transform 1.2s cubic-bezier(.77,0,.18,1);transform-origin:center}
 #hero.open .wm-scale{transform:scale(.84)}
-.wordmark{display:flex;align-items:center;justify-content:center;font-size:clamp(2.7rem,12.5vw,12.5rem);font-weight:370;letter-spacing:-.025em;line-height:1;white-space:nowrap;opacity:0;transform:translateY(40px);transition:opacity 1.2s ease,transform 1.2s cubic-bezier(.22,.8,.2,1)}
+.wordmark{display:flex;align-items:center;justify-content:center;font-size:clamp(1.6rem,5vw,5rem);font-weight:370;letter-spacing:-.05em;line-height:1;white-space:nowrap;opacity:0;transform:translateY(40px);transition:opacity 1.2s ease,transform 1.2s cubic-bezier(.22,.8,.2,1)}
 #hero.in .wordmark{opacity:1;transform:none}
 .wordmark .w{display:inline-block}
 .slot{width:0;height:.92em;overflow:hidden;flex:none;align-self:center;transition:width 1.2s cubic-bezier(.77,0,.18,1);position:relative;background:var(--stone)}
@@ -235,7 +243,7 @@ footer{background:var(--ink);color:#fff;padding:clamp(60px,9vh,110px) var(--pad)
 .foot-nav a:hover{color:#fff;border-bottom-color:#fff}
 .foot-info{grid-column:9/span 4;display:flex;flex-direction:column;gap:12px;text-align:right}
 .foot-info .label{color:rgba(255,255,255,.5)}
-.giant{margin-top:clamp(56px,9vh,110px);font-size:clamp(64px,19vw,330px);line-height:.76;letter-spacing:-.03em;font-weight:380;white-space:nowrap;text-align:center;transform:translateY(20%);display:flex;align-items:center;justify-content:center;gap:.06em;user-select:none}
+.giant{margin-top:clamp(56px,9vh,110px);font-size:clamp(64px,19vw,330px);line-height:.76;letter-spacing:-.05em;font-weight:380;white-space:nowrap;text-align:center;transform:translateY(20%);display:flex;align-items:center;justify-content:center;gap:.06em;user-select:none}
 .giant svg{height:.78em;width:auto;fill:#fff;transform:translateY(-.08em)}
 #cur{position:fixed;left:0;top:0;width:9px;height:9px;border-radius:50%;background:#fff;mix-blend-mode:difference;pointer-events:none;z-index:200;transform:translate(-50%,-50%);transition:width .3s ease,height .3s ease;display:none}
 #cur.big{width:42px;height:42px}
@@ -395,6 +403,10 @@ svg.draw path{stroke-dashoffset:0 !important}
 .tl .stp .note{position:static;display:block;margin-top:8px;white-space:normal}
 }
 
+
+/* Figma roles: body copy in sans (Saans/Inter), display stays serif (Larken/Fraunces) */
+.sec-head .sub,.manifesto .small,.kdo-wrap .txt p,.step p,.place p,#investori p,.cat .row .v,.day p,.contact-grid .cell a,.contact-grid .cell span.v{font-family:var(--sans);font-weight:400}
+.hero-sub{font-family:var(--sans);font-style:normal;font-weight:400}
 </style>
 </head>
 <body>
@@ -426,7 +438,7 @@ svg.draw path{stroke-dashoffset:0 !important}
     <span class="label">hello@gallerypoint.cz</span>
   </div>
 </div>
-<section class="pg-hero" style="--accl:#F2EFE9;--accd:#A14E3C">
+<section class="pg-hero" style="--accl:#E6E0D6;--accd:#624E35">
   <div class="ghost" aria-hidden="true">005</div>
   <span class="label rv"><span data-i="p.kicker"></span> 005</span>
   <h1 class="rv">Hotel Longboat Key</h1>
@@ -440,15 +452,15 @@ svg.draw path{stroke-dashoffset:0 !important}
     </div>
   </div>
 </section>
-<section style="--accd:#A14E3C">
+<section style="--accd:#624E35">
   <div class="sec-head rv"><div class="rule"><span class="label"><b>01</b> · <span data-i="p.int"></span></span><span class="label">No. 005</span></div></div>
   <div class="intent rv"><p class="big"><span data-i="w.005.i"></span></p></div>
 </section>
-<section style="--accd:#A14E3C;padding-top:0">
+<section style="--accd:#624E35;padding-top:0">
   <div class="sec-head rv"><div class="rule"><span class="label"><b>02</b> · <span data-i="t.head"></span></span><span class="label" data-i="t.sub"></span></div></div>
   <div class="tl-wrap"><div class="tl rv"><div class="stp on cur"><span class="n">01</span><div class="h" data-i="t.s1"></div><span class="note anno" data-i="t.note.005"></span></div><div class="stp"><span class="n">02</span><div class="h" data-i="t.s2"></div></div><div class="stp"><span class="n">03</span><div class="h" data-i="t.s3"></div></div><div class="stp"><span class="n">04</span><div class="h" data-i="t.s4"></div></div><div class="stp"><span class="n">05</span><div class="h" data-i="t.s5"></div></div></div><div class="tl-aside rv" style="--d:.15s"><div class="canv"><svg viewBox="0 0 78 100" ><defs><clipPath id="tlc005"><path d="M 1.1425 2.7752 L 0.5879 0.4762 H 76.7526 L 76.5677 1.0509 L 76.1980 2.9668 L 75.8282 4.8826 L 75.4585 6.7984 L 75.0888 8.7142 L 74.7190 10.6300 L 74.3493 12.5458 L 73.9796 14.4616 L 73.6099 16.3774 V 84.1973 L 73.9796 86.1131 L 74.3493 88.0290 L 74.7190 89.9448 L 75.0888 91.8606 L 75.4585 93.7764 L 75.8282 95.6924 L 76.1980 97.6076 L 76.5677 99.5238 H 0.7727 L 1.1425 97.6076 L 1.5122 95.6924 L 1.8819 93.7764 L 2.2517 91.8606 L 2.6214 89.9448 L 2.9911 88.0290 L 3.3609 86.1131 L 3.7306 84.1973 V 16.3774 L 3.3609 14.4616 L 2.9911 12.5458 L 2.6214 10.6300 L 2.2517 8.7142 L 1.8819 6.7984 L 1.5122 4.8826 L 1.1425 2.7752 Z"/></clipPath></defs><path d="M 1.1425 2.7752 L 0.5879 0.4762 H 76.7526 L 76.5677 1.0509 L 76.1980 2.9668 L 75.8282 4.8826 L 75.4585 6.7984 L 75.0888 8.7142 L 74.7190 10.6300 L 74.3493 12.5458 L 73.9796 14.4616 L 73.6099 16.3774 V 84.1973 L 73.9796 86.1131 L 74.3493 88.0290 L 74.7190 89.9448 L 75.0888 91.8606 L 75.4585 93.7764 L 75.8282 95.6924 L 76.1980 97.6076 L 76.5677 99.5238 H 0.7727 L 1.1425 97.6076 L 1.5122 95.6924 L 1.8819 93.7764 L 2.2517 91.8606 L 2.6214 89.9448 L 2.9911 88.0290 L 3.3609 86.1131 L 3.7306 84.1973 V 16.3774 L 3.3609 14.4616 L 2.9911 12.5458 L 2.6214 10.6300 L 2.2517 8.7142 L 1.8819 6.7984 L 1.5122 4.8826 L 1.1425 2.7752 Z" fill="#101010"/><g clip-path="url(#tlc005)"><image href="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=1600&auto=format&fit=crop" width="78" height="100" preserveAspectRatio="xMidYMid slice"/></g></svg></div></div></div>
 </section>
-<section style="--accd:#A14E3C;padding-top:0">
+<section style="--accd:#624E35;padding-top:0">
   <div class="sec-head rv"><div class="rule"><span class="label"><b>03</b> · <span data-i="h.day"></span></span><span class="label" data-i="h.dayr"></span></div></div>
   <div class="day">
     <div class="cell rv"><span class="tm">07:00</span><p data-i="h.d1"></p></div>
@@ -456,7 +468,7 @@ svg.draw path{stroke-dashoffset:0 !important}
     <div class="cell rv" style="--d:.24s"><span class="tm">19:00</span><p data-i="h.d3"></p></div>
   </div>
 </section>
-<section style="--accd:#A14E3C;padding-top:0">
+<section style="--accd:#624E35;padding-top:0">
   <div class="sec-head rv"><div class="rule"><span class="label"><b>04</b> · <span data-i="h.eds"></span></span><span class="label" data-i="h.edsr"></span></div></div>
   <div class="eds">
     <div class="ed rv"><svg viewBox="0 0 78 100" ><defs><clipPath id="e1005"><path d="M 1.1425 2.7752 L 0.5879 0.4762 H 76.7526 L 76.5677 1.0509 L 76.1980 2.9668 L 75.8282 4.8826 L 75.4585 6.7984 L 75.0888 8.7142 L 74.7190 10.6300 L 74.3493 12.5458 L 73.9796 14.4616 L 73.6099 16.3774 V 84.1973 L 73.9796 86.1131 L 74.3493 88.0290 L 74.7190 89.9448 L 75.0888 91.8606 L 75.4585 93.7764 L 75.8282 95.6924 L 76.1980 97.6076 L 76.5677 99.5238 H 0.7727 L 1.1425 97.6076 L 1.5122 95.6924 L 1.8819 93.7764 L 2.2517 91.8606 L 2.6214 89.9448 L 2.9911 88.0290 L 3.3609 86.1131 L 3.7306 84.1973 V 16.3774 L 3.3609 14.4616 L 2.9911 12.5458 L 2.6214 10.6300 L 2.2517 8.7142 L 1.8819 6.7984 L 1.5122 4.8826 L 1.1425 2.7752 Z"/></clipPath></defs><path d="M 1.1425 2.7752 L 0.5879 0.4762 H 76.7526 L 76.5677 1.0509 L 76.1980 2.9668 L 75.8282 4.8826 L 75.4585 6.7984 L 75.0888 8.7142 L 74.7190 10.6300 L 74.3493 12.5458 L 73.9796 14.4616 L 73.6099 16.3774 V 84.1973 L 73.9796 86.1131 L 74.3493 88.0290 L 74.7190 89.9448 L 75.0888 91.8606 L 75.4585 93.7764 L 75.8282 95.6924 L 76.1980 97.6076 L 76.5677 99.5238 H 0.7727 L 1.1425 97.6076 L 1.5122 95.6924 L 1.8819 93.7764 L 2.2517 91.8606 L 2.6214 89.9448 L 2.9911 88.0290 L 3.3609 86.1131 L 3.7306 84.1973 V 16.3774 L 3.3609 14.4616 L 2.9911 12.5458 L 2.6214 10.6300 L 2.2517 8.7142 L 1.8819 6.7984 L 1.5122 4.8826 L 1.1425 2.7752 Z" fill="#101010"/><g clip-path="url(#e1005)"><image href="https://images.unsplash.com/photo-1518780664697-55e3ad937233?q=80&w=900&auto=format&fit=crop" width="78" height="100" preserveAspectRatio="xMidYMid slice"/></g></svg><span class="label">Edice 01</span><span class="t" data-i="h.e1"></span><span class="label" data-i="h.edn"></span></div>
@@ -464,7 +476,7 @@ svg.draw path{stroke-dashoffset:0 !important}
     <div class="ed rv" style="--d:.24s"><svg viewBox="0 0 78 100" ><defs><clipPath id="e3005"><path d="M 1.1425 2.7752 L 0.5879 0.4762 H 76.7526 L 76.5677 1.0509 L 76.1980 2.9668 L 75.8282 4.8826 L 75.4585 6.7984 L 75.0888 8.7142 L 74.7190 10.6300 L 74.3493 12.5458 L 73.9796 14.4616 L 73.6099 16.3774 V 84.1973 L 73.9796 86.1131 L 74.3493 88.0290 L 74.7190 89.9448 L 75.0888 91.8606 L 75.4585 93.7764 L 75.8282 95.6924 L 76.1980 97.6076 L 76.5677 99.5238 H 0.7727 L 1.1425 97.6076 L 1.5122 95.6924 L 1.8819 93.7764 L 2.2517 91.8606 L 2.6214 89.9448 L 2.9911 88.0290 L 3.3609 86.1131 L 3.7306 84.1973 V 16.3774 L 3.3609 14.4616 L 2.9911 12.5458 L 2.6214 10.6300 L 2.2517 8.7142 L 1.8819 6.7984 L 1.5122 4.8826 L 1.1425 2.7752 Z"/></clipPath></defs><path d="M 1.1425 2.7752 L 0.5879 0.4762 H 76.7526 L 76.5677 1.0509 L 76.1980 2.9668 L 75.8282 4.8826 L 75.4585 6.7984 L 75.0888 8.7142 L 74.7190 10.6300 L 74.3493 12.5458 L 73.9796 14.4616 L 73.6099 16.3774 V 84.1973 L 73.9796 86.1131 L 74.3493 88.0290 L 74.7190 89.9448 L 75.0888 91.8606 L 75.4585 93.7764 L 75.8282 95.6924 L 76.1980 97.6076 L 76.5677 99.5238 H 0.7727 L 1.1425 97.6076 L 1.5122 95.6924 L 1.8819 93.7764 L 2.2517 91.8606 L 2.6214 89.9448 L 2.9911 88.0290 L 3.3609 86.1131 L 3.7306 84.1973 V 16.3774 L 3.3609 14.4616 L 2.9911 12.5458 L 2.6214 10.6300 L 2.2517 8.7142 L 1.8819 6.7984 L 1.5122 4.8826 L 1.1425 2.7752 Z" fill="#101010"/><g clip-path="url(#e3005)"><image href="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=900&auto=format&fit=crop" width="78" height="100" preserveAspectRatio="xMidYMid slice"/></g></svg><span class="label">Edice 03</span><span class="t" data-i="h.e3"></span><span class="label" data-i="h.edn"></span></div>
   </div>
 </section>
-<section style="--accd:#A14E3C;padding-top:0">
+<section style="--accd:#624E35;padding-top:0">
   <div class="sec-head rv"><div class="rule"><span class="label"><b>05</b> · <span data-i="p.sr"></span></span><span class="label" data-i="p.srr"></span></div></div>
   <div class="sketch-show rv"><div class="spec-frame"><span class="anno" data-i="p.skanno"></span><svg class="psketch draw" viewBox="0 0 560 380" aria-hidden="true"><path d="M168 44 Q300 36 414 40"/><path d="M414 40 Q421 84 416 128"/><path d="M416 128 Q300 139 176 132"/><path d="M176 132 Q169 88 168 44"/><path d="M186 62 Q300 56 400 60"/><path d="M184 80 Q300 74 402 78"/><path d="M186 98 Q300 92 400 96"/><path d="M184 114 Q300 110 402 114"/><path d="M296 138 Q295 170 298 206"/><path d="M58 218 Q300 207 506 214"/><path d="M506 214 Q515 252 508 290"/><path d="M508 290 Q300 303 64 296"/><path d="M64 296 Q55 256 58 218"/><path d="M120 218 Q125 256 120 296"/><path d="M332 190 Q278 252 222 316"/><path d="M300 250 q9 -3 11 6 q2 9 -8 9 q-9 0 -7 -8"/></svg><div class="caption"><span class="label">Hotel Longboat Key · No. 005</span></div></div></div>
 </section>

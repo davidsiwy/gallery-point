@@ -24,10 +24,18 @@
 <style>
 :root{--portrait-uri:url("data:image/svg+xml,%3Csvg viewBox=%270 0 78 100%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath d=%27M 1.1425 2.7752 L 0.5879 0.4762 H 76.7526 L 76.5677 1.0509 L 76.1980 2.9668 L 75.8282 4.8826 L 75.4585 6.7984 L 75.0888 8.7142 L 74.7190 10.6300 L 74.3493 12.5458 L 73.9796 14.4616 L 73.6099 16.3774 V 84.1973 L 73.9796 86.1131 L 74.3493 88.0290 L 74.7190 89.9448 L 75.0888 91.8606 L 75.4585 93.7764 L 75.8282 95.6924 L 76.1980 97.6076 L 76.5677 99.5238 H 0.7727 L 1.1425 97.6076 L 1.5122 95.6924 L 1.8819 93.7764 L 2.2517 91.8606 L 2.6214 89.9448 L 2.9911 88.0290 L 3.3609 86.1131 L 3.7306 84.1973 V 16.3774 L 3.3609 14.4616 L 2.9911 12.5458 L 2.6214 10.6300 L 2.2517 8.7142 L 1.8819 6.7984 L 1.5122 4.8826 L 1.1425 2.7752 Z%27 fill=%27%23101010%27/%3E%3C/svg%3E")}
 
-:root{--wall:#FFFFFF;--mat:#FFFFFF;--stone:#EDEDEB;--graphite:#76746E;--ink:#101010;--brick:#A14E3C;
---accl:#EDEDEB;--accd:#A14E3C;
---serif:"Fraunces",Georgia,serif;--sans:"Inter",-apple-system,Helvetica,Arial,sans-serif;--hand:"Caveat",cursive;
---pad:clamp(20px,6vw,96px);--hairline:rgba(16,16,16,.14)}
+:root{--wall:#FFFFFF;--mat:#FFFFFF;--stone:#EBEBEB;--graphite:#878787;--ink:#0A0A0A;--brick:#705941;
+--accl:#EBEBEB;--accd:#705941;
+--serif:"Larken","Fraunces",Georgia,serif;--sans:"Saans","Inter",-apple-system,Helvetica,Arial,sans-serif;--hand:"Caveat",cursive;
+--pad:clamp(20px,6vw,96px);--hairline:rgba(10,10,10,.13)}
+/* Figma type system: Larken (display) + Saans (text). Both are licensed fonts; this site renders
+   Fraunces + Inter as the closest free stand-ins until the licensed webfonts are added. To use the
+   real fonts, host the .woff2 files in assets/fonts/ and uncomment:
+@font-face{font-family:"Larken";src:url("assets/fonts/Larken-Regular.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Larken";src:url("assets/fonts/Larken-Medium.woff2") format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Saans";src:url("assets/fonts/Saans-Regular.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Saans";src:url("assets/fonts/Saans-Medium.woff2") format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Saans";src:url("assets/fonts/Saans-Semibold.woff2") format("woff2");font-weight:600;font-display:swap} */
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:96px}
 body{font-family:var(--serif);font-optical-sizing:auto;background:var(--wall);color:var(--ink);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -41,7 +49,7 @@ button{font:inherit;background:none;border:none;cursor:pointer;color:inherit}
 .label{font-family:var(--sans);font-size:10.5px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--graphite)}
 .label b{color:var(--ink);font-weight:600}
 .on-dark .label{color:rgba(255,255,255,.55)}.on-dark .label b{color:#fff}
-h1,h2,h3{font-weight:380;line-height:.96;letter-spacing:-0.015em}
+h1,h2,h3{font-weight:380;line-height:.96;letter-spacing:-0.04em}
 .anno{font-family:var(--hand);color:var(--accd);font-size:clamp(1.15rem,1.8vw,1.5rem);line-height:1;white-space:nowrap}
 .rv{opacity:0;transform:translateY(28px);transition:opacity 1s ease var(--d,0s),transform 1s cubic-bezier(.22,.8,.2,1) var(--d,0s)}
 .rv.on{opacity:1;transform:none}
@@ -86,7 +94,7 @@ section{padding:clamp(80px,13vh,170px) var(--pad)}
 #hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:110px var(--pad) 40px;position:relative}
 .wm-scale{transition:transform 1.2s cubic-bezier(.77,0,.18,1);transform-origin:center}
 #hero.open .wm-scale{transform:scale(.84)}
-.wordmark{display:flex;align-items:center;justify-content:center;font-size:clamp(2.7rem,12.5vw,12.5rem);font-weight:370;letter-spacing:-.025em;line-height:1;white-space:nowrap;opacity:0;transform:translateY(40px);transition:opacity 1.2s ease,transform 1.2s cubic-bezier(.22,.8,.2,1)}
+.wordmark{display:flex;align-items:center;justify-content:center;font-size:clamp(1.6rem,5vw,5rem);font-weight:370;letter-spacing:-.05em;line-height:1;white-space:nowrap;opacity:0;transform:translateY(40px);transition:opacity 1.2s ease,transform 1.2s cubic-bezier(.22,.8,.2,1)}
 #hero.in .wordmark{opacity:1;transform:none}
 .wordmark .w{display:inline-block}
 .slot{width:0;height:.92em;overflow:hidden;flex:none;align-self:center;transition:width 1.2s cubic-bezier(.77,0,.18,1);position:relative;background:var(--stone)}
@@ -235,7 +243,7 @@ footer{background:var(--ink);color:#fff;padding:clamp(60px,9vh,110px) var(--pad)
 .foot-nav a:hover{color:#fff;border-bottom-color:#fff}
 .foot-info{grid-column:9/span 4;display:flex;flex-direction:column;gap:12px;text-align:right}
 .foot-info .label{color:rgba(255,255,255,.5)}
-.giant{margin-top:clamp(56px,9vh,110px);font-size:clamp(64px,19vw,330px);line-height:.76;letter-spacing:-.03em;font-weight:380;white-space:nowrap;text-align:center;transform:translateY(20%);display:flex;align-items:center;justify-content:center;gap:.06em;user-select:none}
+.giant{margin-top:clamp(56px,9vh,110px);font-size:clamp(64px,19vw,330px);line-height:.76;letter-spacing:-.05em;font-weight:380;white-space:nowrap;text-align:center;transform:translateY(20%);display:flex;align-items:center;justify-content:center;gap:.06em;user-select:none}
 .giant svg{height:.78em;width:auto;fill:#fff;transform:translateY(-.08em)}
 #cur{position:fixed;left:0;top:0;width:9px;height:9px;border-radius:50%;background:#fff;mix-blend-mode:difference;pointer-events:none;z-index:200;transform:translate(-50%,-50%);transition:width .3s ease,height .3s ease;display:none}
 #cur.big{width:42px;height:42px}
@@ -395,6 +403,10 @@ svg.draw path{stroke-dashoffset:0 !important}
 .tl .stp .note{position:static;display:block;margin-top:8px;white-space:normal}
 }
 
+
+/* Figma roles: body copy in sans (Saans/Inter), display stays serif (Larken/Fraunces) */
+.sec-head .sub,.manifesto .small,.kdo-wrap .txt p,.step p,.place p,#investori p,.cat .row .v,.day p,.contact-grid .cell a,.contact-grid .cell span.v{font-family:var(--sans);font-weight:400}
+.hero-sub{font-family:var(--sans);font-style:normal;font-weight:400}
 </style>
 </head>
 <body>
@@ -425,7 +437,7 @@ svg.draw path{stroke-dashoffset:0 !important}
     <span class="label" data-i="m.loc"></span>
     <span class="label">hello@gallerypoint.cz</span>
   </div>
-</div><section class="pg-hero" style="--accl:#EDEDEB;--accd:#A14E3C;min-height:90svh;text-align:center;align-items:center"><div style="max-width:640px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:0"><div style="width:min(46vw,150px);margin-bottom:34px"><svg viewBox="0 0 78 100" aria-hidden="true"><path d="M 1.1425 2.7752 L 0.5879 0.4762 H 76.7526 L 76.5677 1.0509 L 76.1980 2.9668 L 75.8282 4.8826 L 75.4585 6.7984 L 75.0888 8.7142 L 74.7190 10.6300 L 74.3493 12.5458 L 73.9796 14.4616 L 73.6099 16.3774 V 84.1973 L 73.9796 86.1131 L 74.3493 88.0290 L 74.7190 89.9448 L 75.0888 91.8606 L 75.4585 93.7764 L 75.8282 95.6924 L 76.1980 97.6076 L 76.5677 99.5238 H 0.7727 L 1.1425 97.6076 L 1.5122 95.6924 L 1.8819 93.7764 L 2.2517 91.8606 L 2.6214 89.9448 L 2.9911 88.0290 L 3.3609 86.1131 L 3.7306 84.1973 V 16.3774 L 3.3609 14.4616 L 2.9911 12.5458 L 2.6214 10.6300 L 2.2517 8.7142 L 1.8819 6.7984 L 1.5122 4.8826 L 1.1425 2.7752 Z" fill="#101010"/></svg></div><span class="label rv" data-i="e404.k"></span><h1 class="rv" style="font-size:clamp(2rem,5.5vw,4rem);margin:16px 0 0" data-i="e404.h"></h1><div class="acc-rule rv" style="margin:22px auto 0"></div><p class="rv" style="font-size:1.08rem;font-weight:340;line-height:1.7;max-width:460px;margin:30px auto 0" data-i="e404.p"></p><a class="rv" href="index.html#kolekce" style="margin-top:36px;font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;border-bottom:1px solid var(--ink);padding-bottom:4px" data-i="e404.cta"></a></div></section><footer>
+</div><section class="pg-hero" style="--accl:#EDEDEB;--accd:#705941;min-height:90svh;text-align:center;align-items:center"><div style="max-width:640px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:0"><div style="width:min(46vw,150px);margin-bottom:34px"><svg viewBox="0 0 78 100" aria-hidden="true"><path d="M 1.1425 2.7752 L 0.5879 0.4762 H 76.7526 L 76.5677 1.0509 L 76.1980 2.9668 L 75.8282 4.8826 L 75.4585 6.7984 L 75.0888 8.7142 L 74.7190 10.6300 L 74.3493 12.5458 L 73.9796 14.4616 L 73.6099 16.3774 V 84.1973 L 73.9796 86.1131 L 74.3493 88.0290 L 74.7190 89.9448 L 75.0888 91.8606 L 75.4585 93.7764 L 75.8282 95.6924 L 76.1980 97.6076 L 76.5677 99.5238 H 0.7727 L 1.1425 97.6076 L 1.5122 95.6924 L 1.8819 93.7764 L 2.2517 91.8606 L 2.6214 89.9448 L 2.9911 88.0290 L 3.3609 86.1131 L 3.7306 84.1973 V 16.3774 L 3.3609 14.4616 L 2.9911 12.5458 L 2.6214 10.6300 L 2.2517 8.7142 L 1.8819 6.7984 L 1.5122 4.8826 L 1.1425 2.7752 Z" fill="#101010"/></svg></div><span class="label rv" data-i="e404.k"></span><h1 class="rv" style="font-size:clamp(2rem,5.5vw,4rem);margin:16px 0 0" data-i="e404.h"></h1><div class="acc-rule rv" style="margin:22px auto 0"></div><p class="rv" style="font-size:1.08rem;font-weight:340;line-height:1.7;max-width:460px;margin:30px auto 0" data-i="e404.p"></p><a class="rv" href="index.html#kolekce" style="margin-top:36px;font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;border-bottom:1px solid var(--ink);padding-bottom:4px" data-i="e404.cta"></a></div></section><footer>
   <div class="foot-top">
     <div class="foot-stack"><span>gallery</span><svg viewBox="0 0 78 100" aria-hidden="true"><path d="M 1.1425 2.7752 L 0.5879 0.4762 H 76.7526 L 76.5677 1.0509 L 76.1980 2.9668 L 75.8282 4.8826 L 75.4585 6.7984 L 75.0888 8.7142 L 74.7190 10.6300 L 74.3493 12.5458 L 73.9796 14.4616 L 73.6099 16.3774 V 84.1973 L 73.9796 86.1131 L 74.3493 88.0290 L 74.7190 89.9448 L 75.0888 91.8606 L 75.4585 93.7764 L 75.8282 95.6924 L 76.1980 97.6076 L 76.5677 99.5238 H 0.7727 L 1.1425 97.6076 L 1.5122 95.6924 L 1.8819 93.7764 L 2.2517 91.8606 L 2.6214 89.9448 L 2.9911 88.0290 L 3.3609 86.1131 L 3.7306 84.1973 V 16.3774 L 3.3609 14.4616 L 2.9911 12.5458 L 2.6214 10.6300 L 2.2517 8.7142 L 1.8819 6.7984 L 1.5122 4.8826 L 1.1425 2.7752 Z" fill="#fff"/></svg><span>point</span></div>
     <nav class="foot-nav" aria-label="Footer">
