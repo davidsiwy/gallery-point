@@ -91,10 +91,10 @@ section{padding:clamp(80px,13vh,170px) var(--pad)}
 .sec-head .rule{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--hairline);padding-top:14px;gap:14px;flex-wrap:wrap}
 .sec-head h2{font-size:clamp(2.4rem,6.2vw,5.6rem)}
 .sec-head .sub{max-width:560px;font-size:1.06rem;font-weight:340}
-#hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:110px var(--pad) 40px;position:relative}
+#hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:110px clamp(16px,2.6vw,52px) 40px;position:relative}
 .wm-scale{transition:transform 1.2s cubic-bezier(.77,0,.18,1);transform-origin:center}
 #hero.open .wm-scale{transform:scale(.84)}
-.wordmark{display:flex;align-items:center;justify-content:center;font-size:clamp(1.5rem,4.5vw,4.6rem);font-weight:370;letter-spacing:-.05em;line-height:1;white-space:nowrap;opacity:0;transform:translateY(40px);transition:opacity 1.2s ease,transform 1.2s cubic-bezier(.22,.8,.2,1)}
+.wordmark{display:flex;align-items:center;justify-content:center;gap:clamp(10px,1vw,22px);font-size:clamp(1.7rem,5.4vw,7rem);font-weight:370;letter-spacing:-.05em;line-height:1;white-space:nowrap;opacity:0;transform:translateY(40px);transition:opacity 1.2s ease,transform 1.2s cubic-bezier(.22,.8,.2,1)}
 #hero.in .wordmark{opacity:1;transform:none}
 .wordmark .w{display:inline-block}
 .slot{width:0;height:.92em;overflow:hidden;flex:none;align-self:center;transition:width 1.2s cubic-bezier(.77,0,.18,1);position:relative;background:var(--stone)}
@@ -417,14 +417,14 @@ svg.draw path{stroke-dashoffset:0 !important}
 .w-a{--wacc:#705941}.w-b{--wacc:#2F5252}.w-c{--wacc:#B9803D}.w-d{--wacc:#475A9D}.w-e{--wacc:#624E35}
 
 /* Hero glyph family — Figma-style abstract shapes, varied proportions, rotating imagery */
-.glyphs{display:inline-flex;align-items:center;gap:.14em;flex:none;align-self:center;margin:0 .18em}
-.gl{display:block;flex:none;transform:scale(0);transform-origin:center 70%;transition:transform 1.1s cubic-bezier(.77,0,.18,1)}
+.glyphs{display:inline-flex;align-items:center;gap:clamp(10px,1vw,22px);flex:none;align-self:center;margin:0}
+.gl{display:block;flex:none;width:auto;transform:scale(0);transform-origin:center 70%;transition:transform 1.1s cubic-bezier(.77,0,.18,1)}
 #hero.open .gl{transform:scale(1)}
 #hero.open .gl1{transition-delay:.06s}#hero.open .gl2{transition-delay:.16s}#hero.open .gl3{transition-delay:.26s}#hero.open .gl4{transition-delay:.36s}#hero.open .gl5{transition-delay:.46s}
 .gl .gl-base{fill:var(--stone)}
 .gl image.gi{opacity:0;transition:opacity 1.1s ease;filter:saturate(.9) contrast(1.02)}
 .gl image.gi.show{opacity:1}
-.gl1{width:1.62em;height:2.05em}.gl2{width:2.17em;height:1.15em}.gl3{width:3.89em;height:3.6em}.gl4{width:1.23em;height:1.55em}.gl5{width:1.62em;height:2.05em}
+.gl1{height:clamp(100px,11.9vw,318px)}.gl2{height:clamp(56px,6.55vw,175px)}.gl3{height:clamp(176px,21vw,560px)}.gl4{height:clamp(78px,8.95vw,239px)}.gl5{height:clamp(100px,11.9vw,318px)}
 @media (max-width:700px){.glyphs{gap:1.8vw;margin:2.4vw 0;order:0}
 .gl1{width:10.7vw;height:13.5vw}.gl2{width:15.8vw;height:8.4vw}.gl3{width:20.3vw;height:18.8vw}.gl4{width:8.6vw;height:10.8vw}.gl5{width:10.7vw;height:13.5vw}}
 @media (prefers-reduced-motion:reduce){.gl{transform:none}}
