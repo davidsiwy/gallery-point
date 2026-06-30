@@ -27,7 +27,7 @@
 :root{--wall:#FFFFFF;--mat:#FFFFFF;--stone:#EBEBEB;--graphite:#878787;--ink:#0A0A0A;--brick:#705941;
 --accl:#EBEBEB;--accd:#705941;
 --serif:"Larken","Fraunces",Georgia,serif;--sans:"Saans","Inter",-apple-system,Helvetica,Arial,sans-serif;--hand:"Caveat",cursive;
---pad:clamp(20px,6vw,96px);--hairline:rgba(10,10,10,.13)}
+--pad:clamp(16px,2.6vw,52px);--hairline:rgba(10,10,10,.13)}
 /* Figma type system: Larken (display) + Saans (text). Both are licensed fonts; this site renders
    Fraunces + Inter as the closest free stand-ins until the licensed webfonts are added. To use the
    real fonts, host the .woff2 files in assets/fonts/ and uncomment:
@@ -91,7 +91,7 @@ section{padding:clamp(80px,13vh,170px) var(--pad)}
 .sec-head .rule{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--hairline);padding-top:14px;gap:14px;flex-wrap:wrap}
 .sec-head h2{font-size:clamp(2.4rem,6.2vw,5.6rem)}
 .sec-head .sub{max-width:560px;font-size:1.06rem;font-weight:340}
-#hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:110px clamp(16px,2.6vw,52px) 40px;position:relative}
+#hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:110px var(--pad) 40px;position:relative}
 .wm-scale{transition:transform 1.2s cubic-bezier(.77,0,.18,1);transform-origin:center}
 #hero.open .wm-scale{transform:scale(.84)}
 .wordmark{display:flex;align-items:center;justify-content:center;gap:clamp(10px,1vw,22px);font-size:clamp(1.7rem,5.4vw,7rem);font-weight:370;letter-spacing:-.05em;line-height:1;white-space:nowrap;opacity:0;transform:translateY(40px);transition:opacity 1.2s ease,transform 1.2s cubic-bezier(.22,.8,.2,1)}
