@@ -455,12 +455,15 @@ svg.draw path{stroke-dashoffset:0 !important}
 
 /* Collection: full-width stacked rows, name-led, no top header */
 #kolekce{padding-top:clamp(60px,9vh,120px)}
-.works-list{display:flex;flex-direction:column;gap:clamp(42px,6.5vh,92px)}
-.wrow{display:grid;grid-template-columns:minmax(210px,0.92fr) 1.55fr;gap:clamp(24px,5vw,78px);align-items:center}
+.works-list{display:flex;flex-direction:column;gap:clamp(34px,3.5vw,54px)}
+.wrow{display:grid;grid-template-columns:minmax(210px,0.82fr) 2fr;gap:clamp(20px,3vw,50px);align-items:center}
+.wrow-rule{display:block;width:100%;height:1px;background:var(--hairline);margin:clamp(16px,2.2vh,28px) 0}
+.wrow-meta{display:grid;grid-template-columns:0.85fr 1.15fr;gap:clamp(14px,1.6vw,26px);align-items:start}
+.wrow-det{display:flex;flex-direction:column}
 .wrow-rail{display:flex;flex-direction:column;align-self:center}
 .wrow-name{font-size:clamp(1.7rem,3.1vw,2.9rem);font-weight:370;letter-spacing:-.03em;line-height:1.02}
-.wrow-no{font-family:var(--sans);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--wacc,var(--graphite));font-weight:500;margin-top:18px}
-.wrow-loc{font-family:var(--sans);font-size:13.5px;color:var(--graphite);margin-top:14px}
+.wrow-no{font-family:var(--sans);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--wacc,var(--graphite));font-weight:500}
+.wrow-loc{font-family:var(--sans);font-size:13.5px;color:var(--graphite)}
 .wrow-type{font-family:var(--sans);font-size:13.5px;color:var(--graphite);margin-top:3px}
 .wrow-status{display:flex;flex-direction:column;gap:7px;margin-top:18px}
 .wrow-status .st{display:flex;align-items:center;gap:9px;font-family:var(--sans);font-size:12.5px;color:var(--ink)}
@@ -604,52 +607,77 @@ svg.draw path{stroke-dashoffset:0 !important}
     <a class="wrow w-a rv" href="vila-hrebenky.html" aria-label="Vila Hřebenky">
       <div class="wrow-rail">
         <h3 class="wrow-name">Vila Hřebenky</h3>
-        <span class="wrow-no">Work 001</span>
-        <span class="wrow-loc">Praha 5</span>
-        <span class="wrow-type" data-i="w.001.t"></span>
-        <div class="wrow-status"><span class="st"><svg class="sicon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 L6.5 12 L13 4.5"/></svg><span data-i="st.done"></span></span><span class="st"><svg class="sicon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 L6.5 12 L13 4.5"/></svg><span data-i="st.sold"></span></span></div>
+        <span class="wrow-rule" aria-hidden="true"></span>
+        <div class="wrow-meta">
+          <span class="wrow-no">Work 001</span>
+          <div class="wrow-det">
+            <span class="wrow-loc">Praha 5</span>
+            <span class="wrow-type" data-i="w.001.t"></span>
+            <div class="wrow-status"><span class="st"><svg class="sicon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 L6.5 12 L13 4.5"/></svg><span data-i="st.done"></span></span><span class="st"><svg class="sicon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 L6.5 12 L13 4.5"/></svg><span data-i="st.sold"></span></span></div>
+          </div>
+        </div>
       </div>
       <div class="wrow-img"><div class="ph"><img loading="lazy" src="assets/hreb-04-1600.jpg" alt="Vila Hřebenky" onerror="imgFail(this)"></div></div>
     </a>
     <a class="wrow w-b rv" href="vila-branik.html" aria-label="Vila Bráník">
       <div class="wrow-rail">
         <h3 class="wrow-name">Vila Bráník</h3>
-        <span class="wrow-no">Work 002</span>
-        <span class="wrow-loc">Praha 4</span>
-        <span class="wrow-type" data-i="w.002.t"></span>
-        <div class="wrow-status"><span class="st"><svg class="sicon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="4.6"/></svg><span data-i="st.design"></span></span></div>
+        <span class="wrow-rule" aria-hidden="true"></span>
+        <div class="wrow-meta">
+          <span class="wrow-no">Work 002</span>
+          <div class="wrow-det">
+            <span class="wrow-loc">Praha 4</span>
+            <span class="wrow-type" data-i="w.002.t"></span>
+            <div class="wrow-status"><span class="st"><svg class="sicon" viewBox="0 0 16 16" aria-hidden="true"><path d="M11.5 2.5 L13.5 4.5 L6 12 L3 13 L4 10 Z"/><path d="M10 4 L12 6"/></svg><span data-i="st.design"></span></span></div>
+          </div>
+        </div>
       </div>
       <div class="wrow-img"><div class="ph"><img loading="lazy" src="assets/branik-1600.jpg" alt="Vila Bráník" onerror="imgFail(this)"></div></div>
     </a>
     <a class="wrow w-c rv" href="vila-gulfside.html" aria-label="Vila Gulf Side">
       <div class="wrow-rail">
         <h3 class="wrow-name">Vila Gulf Side</h3>
-        <span class="wrow-no">Work 003</span>
-        <span class="wrow-loc">Longboat Key, Florida</span>
-        <span class="wrow-type" data-i="w.003.t"></span>
-        <div class="wrow-status"><span class="st"><svg class="sicon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="4.6"/></svg><span data-i="st.land"></span></span></div>
+        <span class="wrow-rule" aria-hidden="true"></span>
+        <div class="wrow-meta">
+          <span class="wrow-no">Work 003</span>
+          <div class="wrow-det">
+            <span class="wrow-loc">Longboat Key, Florida</span>
+            <span class="wrow-type" data-i="w.003.t"></span>
+            <div class="wrow-status"><span class="st"><svg class="sicon" viewBox="0 0 16 16" aria-hidden="true"><path d="M11.5 2.5 L13.5 4.5 L6 12 L3 13 L4 10 Z"/><path d="M10 4 L12 6"/></svg><span data-i="st.land"></span></span></div>
+          </div>
+        </div>
       </div>
       <div class="wrow-img"><div class="ph"><img loading="lazy" src="assets/gulf-01-1600.jpg" alt="Vila Gulf Side" onerror="imgFail(this)"></div></div>
     </a>
     <a class="wrow w-d rv" href="vila-bayou-sound.html" aria-label="Vila Bayou Sound">
       <div class="wrow-rail">
         <h3 class="wrow-name">Vila Bayou Sound</h3>
-        <span class="wrow-no">Work 004</span>
-        <span class="wrow-loc">Longboat Key, Florida</span>
-        <span class="wrow-type" data-i="w.004.t"></span>
-        <div class="wrow-status"><span class="st"><svg class="sicon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="4.6"/></svg><span data-i="st.prog"></span></span></div>
+        <span class="wrow-rule" aria-hidden="true"></span>
+        <div class="wrow-meta">
+          <span class="wrow-no">Work 004</span>
+          <div class="wrow-det">
+            <span class="wrow-loc">Longboat Key, Florida</span>
+            <span class="wrow-type" data-i="w.004.t"></span>
+            <div class="wrow-status"><span class="st"><svg class="sicon" viewBox="0 0 16 16" aria-hidden="true"><path d="M11.5 2.5 L13.5 4.5 L6 12 L3 13 L4 10 Z"/><path d="M10 4 L12 6"/></svg><span data-i="st.prog"></span></span></div>
+          </div>
+        </div>
       </div>
       <div class="wrow-img"><div class="ph"><img loading="lazy" src="assets/bayou-front-1600.jpg" alt="Vila Bayou Sound" onerror="imgFail(this)"></div></div>
     </a>
     <a class="wrow w-e rv" href="hotel-longboat-key.html" aria-label="Hotel Longboat Key">
       <div class="wrow-rail">
         <h3 class="wrow-name">Hotel Longboat Key</h3>
-        <span class="wrow-no">Work 005</span>
-        <span class="wrow-loc">Longboat Key, Florida</span>
-        <span class="wrow-type" data-i="w.005.t"></span>
-        <div class="wrow-status"><span class="st"><svg class="sicon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="4.6"/></svg><span data-i="st.prep"></span></span></div>
+        <span class="wrow-rule" aria-hidden="true"></span>
+        <div class="wrow-meta">
+          <span class="wrow-no">Work 005</span>
+          <div class="wrow-det">
+            <span class="wrow-loc">Longboat Key, Florida</span>
+            <span class="wrow-type" data-i="w.005.t"></span>
+            <div class="wrow-status"><span class="st"><svg class="sicon" viewBox="0 0 16 16" aria-hidden="true"><path d="M11.5 2.5 L13.5 4.5 L6 12 L3 13 L4 10 Z"/><path d="M10 4 L12 6"/></svg><span data-i="st.prep"></span></span></div>
+          </div>
+        </div>
       </div>
-      <div class="wrow-img"><div class="ph"><img loading="lazy" src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=1600&auto=format&fit=crop" alt="Hotel Longboat Key" onerror="imgFail(this)"></div></div>
+      <div class="wrow-img"><div class="ph"><img loading="lazy" src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&amp;w=1600&amp;auto=format&amp;fit=crop" alt="Hotel Longboat Key" onerror="imgFail(this)"></div></div>
     </a>
   </div>
   <div class="works-close rv">
