@@ -443,15 +443,15 @@ svg.draw path{stroke-dashoffset:0 !important}
 .mani-state .em .u{position:absolute;left:0;right:0;bottom:-.08em;height:.07em;pointer-events:none}
 .mani-state .em .u path{stroke:var(--brick);stroke-width:2.4;fill:none;stroke-linecap:round}
 .mani-r{position:relative}
-.mani-box{background:var(--stone);aspect-ratio:4/3;position:relative;display:flex;align-items:center;justify-content:center;padding:clamp(22px,4vw,52px);max-width:clamp(280px,34vw,460px)}
+.mani-box{background:var(--stone);aspect-ratio:4/3;position:relative;display:flex;align-items:center;justify-content:center;padding:clamp(22px,4vw,52px);max-width:clamp(280px,34vw,460px);margin:0 auto}
 .mani-box .mani-sketch{width:64%;height:auto}
 .mani-box .mani-sketch path{fill:none;stroke:var(--graphite);stroke-width:1.1}
 .mani-r > .mani-est{position:absolute;top:50%;right:0;transform:translateY(-50%)}
 .mani-box .anno{position:absolute;left:18px;bottom:14px;transform:rotate(-3deg)}
-.mani-intro{margin:clamp(22px,3vw,34px) 0 0 0;max-width:clamp(280px,34vw,460px)}
+.mani-intro{margin:clamp(22px,3vw,34px) auto 0;max-width:clamp(280px,34vw,460px)}
 .mani-intro p{font-family:var(--sans);font-size:1.04rem;font-weight:340;line-height:1.7}
 .mani-intro p + p{margin-top:14px}
-.mani-dots{display:flex;justify-content:center;gap:7px;margin:16px 0 0;max-width:clamp(280px,34vw,460px)}
+.mani-dots{display:flex;justify-content:center;gap:7px;margin:16px auto 0;max-width:clamp(280px,34vw,460px)}
 .mani-dots .dot{width:6px;height:6px;border-radius:50%;background:var(--ink)}
 
 /* Collection: full-width stacked rows, name-led, no top header */
@@ -520,7 +520,7 @@ svg.draw path{stroke-dashoffset:0 !important}
 /* responsive — rebuilt sections */
 @media (max-width:1020px){
 .mani{grid-template-columns:1fr;gap:40px}
-.mani-r > .mani-est{position:static;display:block;transform:none;margin:14px 0 0}
+.mani-r > .mani-est{position:static;display:block;transform:none;margin:14px auto 0;max-width:clamp(280px,34vw,460px);text-align:center}
 .prow{grid-template-columns:1fr;gap:22px}
 .prow-head{display:flex;align-items:baseline;gap:16px}
 .prow-title{margin-top:0}
