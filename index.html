@@ -442,15 +442,16 @@ svg.draw path{stroke-dashoffset:0 !important}
 .mani-state .em{font-style:italic;position:relative;white-space:nowrap}
 .mani-state .em .u{position:absolute;left:0;right:0;bottom:-.08em;height:.07em;pointer-events:none}
 .mani-state .em .u path{stroke:var(--brick);stroke-width:2.4;fill:none;stroke-linecap:round}
-.mani-box{border:1px solid var(--brick);aspect-ratio:7/5;position:relative;display:flex;align-items:center;justify-content:center;padding:clamp(22px,4vw,52px)}
-.mani-box .frame-glyph{width:clamp(84px,11vw,140px);height:auto}
-.mani-box .frame-glyph path{fill:none;stroke:var(--brick);stroke-width:1.3}
-.mani-box .mani-est{position:absolute;top:16px;right:18px}
+.mani-r{position:relative}
+.mani-box{background:var(--stone);aspect-ratio:4/3;position:relative;display:flex;align-items:center;justify-content:center;padding:clamp(22px,4vw,52px);max-width:clamp(280px,34vw,460px)}
+.mani-box .mani-sketch{width:64%;height:auto}
+.mani-box .mani-sketch path{fill:none;stroke:var(--graphite);stroke-width:1.1}
+.mani-r > .mani-est{position:absolute;top:50%;right:0;transform:translateY(-50%)}
 .mani-box .anno{position:absolute;left:18px;bottom:14px;transform:rotate(-3deg)}
-.mani-intro{margin:clamp(22px,3vw,34px) 0 0 0;max-width:540px}
+.mani-intro{margin:clamp(22px,3vw,34px) 0 0 0;max-width:clamp(280px,34vw,460px)}
 .mani-intro p{font-family:var(--sans);font-size:1.04rem;font-weight:340;line-height:1.7}
 .mani-intro p + p{margin-top:14px}
-.mani-dots{display:flex;justify-content:center;gap:7px;margin:16px 0 0}
+.mani-dots{display:flex;justify-content:center;gap:7px;margin:16px 0 0;max-width:clamp(280px,34vw,460px)}
 .mani-dots .dot{width:6px;height:6px;border-radius:50%;background:var(--ink)}
 
 /* Collection: full-width stacked rows, name-led, no top header */
@@ -519,6 +520,7 @@ svg.draw path{stroke-dashoffset:0 !important}
 /* responsive — rebuilt sections */
 @media (max-width:1020px){
 .mani{grid-template-columns:1fr;gap:40px}
+.mani-r > .mani-est{position:static;display:block;transform:none;margin:14px 0 0}
 .prow{grid-template-columns:1fr;gap:22px}
 .prow-head{display:flex;align-items:baseline;gap:16px}
 .prow-title{margin-top:0}
@@ -593,10 +595,22 @@ svg.draw path{stroke-dashoffset:0 !important}
     <div class="mani-l rv"><p class="mani-state" data-i="kdo.big" data-html></p></div>
     <div class="mani-r">
       <div class="mani-box rv" style="--d:.08s">
-        <span class="mani-est label" data-i="hero.m3"></span>
-        <svg class="frame-glyph draw" viewBox="0 0 78 100" aria-hidden="true"><path d="M 1.1425 2.7752 L 0.5879 0.4762 H 76.7526 L 76.5677 1.0509 L 76.1980 2.9668 L 75.8282 4.8826 L 75.4585 6.7984 L 75.0888 8.7142 L 74.7190 10.6300 L 74.3493 12.5458 L 73.9796 14.4616 L 73.6099 16.3774 V 84.1973 L 73.9796 86.1131 L 74.3493 88.0290 L 74.7190 89.9448 L 75.0888 91.8606 L 75.4585 93.7764 L 75.8282 95.6924 L 76.1980 97.6076 L 76.5677 99.5238 H 0.7727 L 1.1425 97.6076 L 1.5122 95.6924 L 1.8819 93.7764 L 2.2517 91.8606 L 2.6214 89.9448 L 2.9911 88.0290 L 3.3609 86.1131 L 3.7306 84.1973 V 16.3774 L 3.3609 14.4616 L 2.9911 12.5458 L 2.6214 10.6300 L 2.2517 8.7142 L 1.8819 6.7984 L 1.5122 4.8826 L 1.1425 2.7752 Z"/></svg>
+        <svg class="mani-sketch draw" viewBox="0 0 300 220" aria-hidden="true">
+          <path d="M70 46 Q150 38 230 44"/>
+          <path d="M66 62 Q150 55 234 60"/>
+          <path d="M63 78 Q150 72 236 76"/>
+          <path d="M61 94 Q150 89 237 92"/>
+          <path d="M60 110 Q150 106 238 108"/>
+          <path d="M44 140 Q150 130 256 138"/>
+          <path d="M256 138 Q262 156 257 174"/>
+          <path d="M257 174 Q150 184 48 176"/>
+          <path d="M48 176 Q42 158 44 140"/>
+          <path d="M118 142 Q124 158 119 176"/>
+          <path d="M150 150 q40 16 64 46"/>
+        </svg>
         <span class="anno" data-i="kdo.anno"></span>
       </div>
+      <span class="mani-est label" data-i="hero.m3"></span>
       <div class="mani-dots rv" style="--d:.12s"><span class="dot"></span></div>
       <div class="mani-intro rv" style="--d:.16s"><p data-i="kdo.s1"></p><p data-i="kdo.s2"></p></div>
     </div>
