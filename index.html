@@ -347,7 +347,7 @@ header nav{display:none}
 #hero{min-height:100svh;justify-content:flex-start;padding:0 var(--pad) 48px}
 .wm-scale{min-height:100svh;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .slot{display:none}
-.wordmark{flex-direction:column;white-space:normal;gap:1.2svh;font-size:clamp(2rem,9.5vw,2.9rem);line-height:1.02}
+.wordmark{flex-direction:column;white-space:normal;gap:2.5svh;font-size:clamp(2rem,9.5vw,2.9rem);line-height:1.02}
 .portrait-live{height:auto;width:min(44vw,170px);margin:.08em 0}
 .portrait-live .psk{display:block;stroke-dasharray:1;stroke-dashoffset:1;transform-box:fill-box;transform-origin:center}
 .portrait-live .pblack{opacity:0}
@@ -452,8 +452,9 @@ svg.draw path{stroke-dashoffset:0 !important}
 .gl image.gi{opacity:0;transition:opacity 1.1s ease;filter:saturate(.9) contrast(1.02)}
 .gl image.gi.show{opacity:1}
 .gl1{height:clamp(100px,11.9vw,318px)}.gl2{height:clamp(56px,6.55vw,175px)}.gl3{height:clamp(176px,21vw,560px)}.gl4{height:clamp(78px,8.95vw,239px)}.gl5{height:clamp(100px,11.9vw,318px)}
-@media (max-width:700px){.glyphs{flex-direction:column;gap:1.3svh;margin:1svh 0;order:0}
-.gl1{width:auto;height:12svh}.gl2{width:auto;height:7svh}.gl3{width:auto;height:18svh}.gl4{width:auto;height:12svh}.gl5{width:auto;height:12svh}}
+@media (max-width:700px){.glyphs{flex-direction:column;gap:0;margin:0;order:0}
+.gl1,.gl2,.gl4,.gl5{display:none}
+.gl3{width:auto;height:56svh}}
 @media (prefers-reduced-motion:reduce){.gl{transform:none}}
 /* ============ Figma section rebuild ============ */
 /* Manifesto: statement left, framed mark + intro right */
