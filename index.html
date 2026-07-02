@@ -221,9 +221,9 @@ section{padding:clamp(80px,13vh,170px) var(--pad)}
 .place .label{margin-top:auto}
 #investori{position:relative;padding:0}
 .inv-photo{position:relative}
-.inv-photo .ph{height:clamp(540px,82vh,840px);clip-path:url(#invPhotoClip)}
+.inv-photo .ph{height:clamp(540px,82vh,840px);width:min(calc(clamp(540px,82vh,840px) * 0.79375),92vw);margin:0 auto;clip-path:url(#invPhotoClip)}
 .inv-photo .ph img{filter:saturate(.92) contrast(1.02)}
-.inv-photo::after{content:"";position:absolute;inset:0;background:rgba(10,10,10,.32)}
+.inv-photo .ph::after{content:"";position:absolute;inset:0;background:rgba(10,10,10,.32)}
 .inv-over{position:absolute;inset:0;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:clamp(18px,3vw,50px);padding:0 var(--pad)}
 .inv-hl,.inv-hr{font-family:var(--serif);font-size:clamp(1.7rem,3.5vw,3.4rem);font-weight:370;color:#fff;letter-spacing:-.02em;line-height:1.02}
 .inv-hl{justify-self:start}
@@ -549,7 +549,7 @@ svg.draw path{stroke-dashoffset:0 !important}
 }
 @media (max-width:700px){
 .kap-photo .ph{height:80vh}
-.inv-photo .ph{height:90vh}
+.inv-photo .ph{height:90vh;width:min(calc(90vh * 0.79375),92vw)}
 }
 </style>
 </head>
