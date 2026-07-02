@@ -344,20 +344,17 @@ header nav{display:none}
 .eds{grid-template-columns:1fr 1fr}
 }
 @media (max-width:700px){
-#hero{min-height:100svh;justify-content:flex-start;padding:0 var(--pad) 48px}
-.wm-scale{min-height:100svh;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center}
+#loader{display:none}
+#hero{min-height:100svh;justify-content:flex-start;padding:0 var(--pad) 40px}
+.wm-scale{min-height:100svh;width:100%;display:flex;align-items:center;justify-content:center}
 .slot{display:none}
-.wordmark{flex-direction:column;white-space:normal;gap:2.5svh;font-size:clamp(3.6rem,24vw,6.5rem);line-height:1.02}
+.wordmark{flex-direction:column;align-items:center;white-space:normal;gap:3svh;font-size:clamp(2.8rem,22vw,5.4rem);line-height:1}
 .portrait-live{height:auto;width:min(44vw,170px);margin:.08em 0}
 .portrait-live .psk{display:block;stroke-dasharray:1;stroke-dashoffset:1;transform-box:fill-box;transform-origin:center}
 .portrait-live .pblack{opacity:0}
 #hero.in .portrait-live .psk{animation:gpdraw 1.25s cubic-bezier(.4,0,.2,1) .5s forwards,gpghost .8s ease 2.05s forwards}
 #hero.in .portrait-live .pblack{animation:gpfill .9s ease 1.65s forwards}
-.wordmark .w{opacity:0;transform:translateY(14px);transition:opacity 1.04s ease,transform 1.04s cubic-bezier(.22,.8,.2,1)}
-.wordmark .w:first-child{transform:translateY(-14px)}
-#hero.named .wordmark .w{opacity:1;transform:none}
-#hero.named .wordmark .w:first-child{transition-delay:.05s}
-#hero.named .wordmark .w:last-child{transition-delay:.2s}
+.wordmark .w{opacity:1;transform:none;transition:none}
 #hero.open .wm-scale{transform:none}
 .hero-sub .anno{right:0;top:-1.7em}
 .hero-meta{grid-template-columns:1fr}
@@ -454,7 +451,9 @@ svg.draw path{stroke-dashoffset:0 !important}
 .gl1{height:clamp(100px,11.9vw,318px)}.gl2{height:clamp(56px,6.55vw,175px)}.gl3{height:clamp(176px,21vw,560px)}.gl4{height:clamp(78px,8.95vw,239px)}.gl5{height:clamp(100px,11.9vw,318px)}
 @media (max-width:700px){.glyphs{flex-direction:column;gap:0;margin:0;order:0}
 .gl1,.gl2,.gl4,.gl5{display:none}
-.gl3{width:auto;height:56svh}}
+.gl{transform:none;transition:none}
+.gl3{width:auto;height:50svh}
+.gl3 image.gi:first-of-type{opacity:1}}
 @media (prefers-reduced-motion:reduce){.gl{transform:none}}
 /* ============ Figma section rebuild ============ */
 /* Manifesto: statement left, framed mark + intro right */
@@ -845,13 +844,14 @@ setTimeout(()=>{if(loader)loader.classList.add('words-out');},290);
 setTimeout(()=>{gls.forEach(gl=>gl.style.transition='none');seedGlyphs();void document.body.offsetWidth;gls.forEach(gl=>gl.style.transition='');void document.body.offsetWidth;hero.classList.add('open');if(g3img)g3img.classList.add('show');if(loader)loader.classList.add('fade');},690);
 setTimeout(()=>{if(loader)loader.remove();},1035);
 setTimeout(()=>{hero.classList.add('named');},1440);}
-if(reduced){if(loader)loader.remove();gls.forEach(gl=>{gl.style.setProperty('--cx','0px');gl.style.setProperty('--cy','0px');gl.style.setProperty('--s0','1');});if(g3img)g3img.classList.add('show');hero.classList.add('open','named');}else{const stack=loader&&loader.querySelector('.stack');let started=false;const begin=()=>{if(started)return;started=true;alignLoader();if(stack)stack.classList.add('show');setTimeout(openGallery,600);};const fReady=(document.fonts&&document.fonts.load)?Promise.all([document.fonts.load('400 2rem "Larken"'),document.fonts.load('300 2rem "Larken"')]).catch(()=>{}):Promise.resolve();Promise.race([Promise.resolve(fReady),new Promise(r=>setTimeout(r,1600))]).then(begin);}
+const isMobile=matchMedia('(max-width:700px)').matches;
+if(reduced||isMobile){if(loader)loader.remove();gls.forEach(gl=>{gl.style.setProperty('--cx','0px');gl.style.setProperty('--cy','0px');gl.style.setProperty('--s0','1');});if(g3img)g3img.classList.add('show');hero.classList.add('open','named');}else{const stack=loader&&loader.querySelector('.stack');let started=false;const begin=()=>{if(started)return;started=true;alignLoader();if(stack)stack.classList.add('show');setTimeout(openGallery,600);};const fReady=(document.fonts&&document.fonts.load)?Promise.all([document.fonts.load('400 2rem "Larken"'),document.fonts.load('300 2rem "Larken"')]).catch(()=>{}):Promise.resolve();Promise.race([Promise.resolve(fReady),new Promise(r=>setTimeout(r,1600))]).then(begin);}
 const glGroups=[...document.querySelectorAll('.glyphs .gl')].map(gl=>[...gl.querySelectorAll('image.gi')]);
 if(glGroups.some(g=>g.length)){
 glGroups.forEach(imgs=>imgs.forEach(im=>im.addEventListener('error',()=>{const p=im.parentNode;im.remove();})));
 const gidx=glGroups.map(()=>0);
 const advance=g=>{const imgs=glGroups[g];if(!imgs||imgs.length<2)return;imgs.forEach(im=>im.classList.remove('show'));gidx[g]=(gidx[g]+1)%imgs.length;imgs[gidx[g]].classList.add('show');};
-if(!reduced){let g=0;setTimeout(()=>setInterval(()=>{advance(g%glGroups.length);g++;},1800),2530);}
+if(!reduced&&!isMobile){let g=0;setTimeout(()=>setInterval(()=>{advance(g%glGroups.length);g++;},1800),2530);}
 }
 (function(){const svg=document.getElementById('shingles');if(!svg)return;const NS='http://www.w3.org/2000/svg';let i=0;
 const add=(x,y)=>{const r=document.createElementNS(NS,'rect');r.setAttribute('x',x);r.setAttribute('y',y);r.setAttribute('width',42);r.setAttribute('height',12);r.setAttribute('rx',1);r.style.transitionDelay=(i*0.012)+'s';i++;svg.appendChild(r);};
