@@ -65,7 +65,8 @@ svg.draw path{fill:none;stroke-linecap:round;stroke-linejoin:round;transition:st
 svg.draw.go path{stroke-dashoffset:0 !important}
 #loader{position:fixed;inset:0;z-index:120;background:var(--wall);display:flex;align-items:center;justify-content:center;transition:opacity .63s ease}
 #loader.fade{opacity:0}
-#loader .stack{display:flex;flex-direction:column;align-items:center;gap:16px;opacity:0;animation:fadein .52s ease .05s forwards}
+#loader .stack{display:flex;flex-direction:column;align-items:center;gap:16px;opacity:0;transition:opacity .52s ease}
+#loader .stack.show{opacity:1}
 #loader .stack span{font-size:2rem;line-height:1;transition:opacity .52s ease}
 #loader.words-out .stack span{opacity:0}
 #loader .stack svg{width:auto;height:56px;fill:#101010}
@@ -839,7 +840,7 @@ setTimeout(()=>{if(loader)loader.classList.add('words-out');},290);
 setTimeout(()=>{gls.forEach(gl=>gl.style.transition='none');seedGlyphs();void document.body.offsetWidth;gls.forEach(gl=>gl.style.transition='');void document.body.offsetWidth;hero.classList.add('open');if(g3img)g3img.classList.add('show');if(loader)loader.classList.add('fade');},690);
 setTimeout(()=>{if(loader)loader.remove();},1035);
 setTimeout(()=>{hero.classList.add('named');},1440);}
-if(reduced){if(loader)loader.remove();gls.forEach(gl=>{gl.style.setProperty('--cx','0px');gl.style.setProperty('--s0','1');});if(g3img)g3img.classList.add('show');hero.classList.add('open','named');}else{let done=false;const go=()=>{if(done)return;done=true;openGallery();};window.addEventListener('load',()=>{alignLoader();setTimeout(go,200);});setTimeout(go,1400);}
+if(reduced){if(loader)loader.remove();gls.forEach(gl=>{gl.style.setProperty('--cx','0px');gl.style.setProperty('--s0','1');});if(g3img)g3img.classList.add('show');hero.classList.add('open','named');}else{const stack=loader&&loader.querySelector('.stack');let started=false;const begin=()=>{if(started)return;started=true;alignLoader();if(stack)stack.classList.add('show');setTimeout(openGallery,600);};const fReady=(document.fonts&&document.fonts.load)?document.fonts.load('2rem "Larken"').catch(()=>{}):Promise.resolve();Promise.race([Promise.resolve(fReady),new Promise(r=>setTimeout(r,1600))]).then(begin);}
 const glGroups=[...document.querySelectorAll('.glyphs .gl')].map(gl=>[...gl.querySelectorAll('image.gi')]);
 if(glGroups.some(g=>g.length)){
 glGroups.forEach(imgs=>imgs.forEach(im=>im.addEventListener('error',()=>{const p=im.parentNode;im.remove();})));
