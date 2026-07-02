@@ -223,7 +223,7 @@ section{padding:clamp(80px,13vh,170px) var(--pad)}
 #kontakt{padding:clamp(60px,9vh,120px) var(--pad)}
 .kon-simple{display:grid;grid-template-columns:minmax(240px,470px) 1fr;gap:clamp(30px,5vw,70px)}
 .kon-photo{position:relative}
-.kon-photo .ph{aspect-ratio:127/160;max-height:480px}
+.kon-photo .ph{position:relative;aspect-ratio:127/160;max-height:480px;width:100%}
 .kon-wordmark{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;color:#fff;font-family:var(--serif);font-size:2rem;font-weight:370;letter-spacing:-.01em;line-height:1}
 .kon-wordmark svg{width:40px;height:auto;fill:#fff;margin:-2px 0}
 .kon-side{display:flex;flex-direction:column;justify-content:space-between;padding:6px 0;min-height:100%}
@@ -773,8 +773,7 @@ svg.draw path{stroke-dashoffset:0 !important}
 <section id="kontakt">
   <div class="kon-simple">
     <div class="kon-photo">
-      <div class="ph"><img loading="lazy" src="assets/hreb-09-1600.jpg" alt="" onerror="imgFail(this)"></div>
-      <div class="kon-wordmark"><span>gallery</span><svg viewBox="0 0 78 100" aria-hidden="true"><path d="M 1.1425 2.7752 L 0.5879 0.4762 H 76.7526 L 76.5677 1.0509 L 76.1980 2.9668 L 75.8282 4.8826 L 75.4585 6.7984 L 75.0888 8.7142 L 74.7190 10.6300 L 74.3493 12.5458 L 73.9796 14.4616 L 73.6099 16.3774 V 84.1973 L 73.9796 86.1131 L 74.3493 88.0290 L 74.7190 89.9448 L 75.0888 91.8606 L 75.4585 93.7764 L 75.8282 95.6924 L 76.1980 97.6076 L 76.5677 99.5238 H 0.7727 L 1.1425 97.6076 L 1.5122 95.6924 L 1.8819 93.7764 L 2.2517 91.8606 L 2.6214 89.9448 L 2.9911 88.0290 L 3.3609 86.1131 L 3.7306 84.1973 V 16.3774 L 3.3609 14.4616 L 2.9911 12.5458 L 2.6214 10.6300 L 2.2517 8.7142 L 1.8819 6.7984 L 1.5122 4.8826 L 1.1425 2.7752 Z" fill="#fff"/></svg><span>point</span></div>
+      <div class="ph"><img loading="lazy" src="assets/hreb-09-1600.jpg" alt="" onerror="imgFail(this)"><div class="kon-wordmark"><span>gallery</span><svg viewBox="0 0 78 100" aria-hidden="true"><path d="M 1.1425 2.7752 L 0.5879 0.4762 H 76.7526 L 76.5677 1.0509 L 76.1980 2.9668 L 75.8282 4.8826 L 75.4585 6.7984 L 75.0888 8.7142 L 74.7190 10.6300 L 74.3493 12.5458 L 73.9796 14.4616 L 73.6099 16.3774 V 84.1973 L 73.9796 86.1131 L 74.3493 88.0290 L 74.7190 89.9448 L 75.0888 91.8606 L 75.4585 93.7764 L 75.8282 95.6924 L 76.1980 97.6076 L 76.5677 99.5238 H 0.7727 L 1.1425 97.6076 L 1.5122 95.6924 L 1.8819 93.7764 L 2.2517 91.8606 L 2.6214 89.9448 L 2.9911 88.0290 L 3.3609 86.1131 L 3.7306 84.1973 V 16.3774 L 3.3609 14.4616 L 2.9911 12.5458 L 2.6214 10.6300 L 2.2517 8.7142 L 1.8819 6.7984 L 1.5122 4.8826 L 1.1425 2.7752 Z" fill="#fff"/></svg><span>point</span></div></div>
     </div>
     <div class="kon-side">
       <div class="kon-top">
