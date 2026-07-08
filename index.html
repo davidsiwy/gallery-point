@@ -353,7 +353,7 @@ header{padding:13px var(--pad)}
 }
 @media (max-width:700px){
 #loader{display:none}
-#hero{min-height:100svh;justify-content:flex-start;padding:0 var(--pad) 40px}
+#hero{min-height:100svh;justify-content:flex-start;padding:60px var(--pad) 40px}
 .wm-scale{min-height:100svh;width:100%;display:flex;align-items:center;justify-content:center}
 .slot{display:none}
 .wordmark{flex-direction:column;align-items:center;white-space:normal;gap:3svh;font-size:clamp(2.8rem,22vw,5.4rem);line-height:1}
@@ -364,7 +364,9 @@ header{padding:13px var(--pad)}
 #hero.in .portrait-live .pblack{animation:gpfill .9s ease 1.65s forwards}
 .wordmark .w{opacity:1;transform:none;transition:none}
 #hero.open .wm-scale{transform:none}
-.hero-sub .anno{right:0;top:-1.7em}
+.hero-sub{position:relative}
+.hero-sub .anno-wrap{position:static}
+.hero-sub .anno{position:absolute;left:50%;right:auto;top:-2.4em;transform:translateX(-50%) rotate(-3deg);white-space:nowrap}
 .hero-meta{grid-template-columns:1fr}
 .hero-meta .label:nth-child(2),.hero-meta .label:nth-child(3){text-align:left}
 .contact-grid{grid-template-columns:1fr}
@@ -460,8 +462,7 @@ svg.draw path{stroke-dashoffset:0 !important}
 @media (max-width:700px){.glyphs{flex-direction:column;gap:0;margin:0;order:0}
 .gl1,.gl2,.gl4,.gl5{display:none}
 .gl{transform:none;transition:none}
-.gl3{width:auto;height:50svh}
-.gl3 image.gi:first-of-type{opacity:1}}
+.gl3{width:auto;height:min(38svh,330px)}}
 @media (prefers-reduced-motion:reduce){.gl{transform:none}}
 /* ============ Figma section rebuild ============ */
 /* Manifesto: statement left, framed mark + intro right */
@@ -561,10 +562,10 @@ svg.draw path{stroke-dashoffset:0 !important}
 .prow{grid-template-columns:1fr;gap:22px}
 .prow-head{display:flex;align-items:baseline;gap:16px}
 .prow-title{margin-top:0}
-.kap-over{grid-template-columns:1fr;justify-items:center;gap:14px}
+.kap-over{grid-template-columns:1fr;justify-items:center;align-content:center;gap:16px}
 .kap-l,.kap-r{justify-self:center;text-align:center}
 .kap-mid{order:3}
-.inv-over{grid-template-columns:1fr;justify-items:center;gap:20px}
+.inv-over{grid-template-columns:1fr;justify-items:center;align-content:center;gap:22px}
 .inv-hl,.inv-hr{justify-self:center;text-align:center}
 .inv-card-shadow{order:3}
 }
@@ -587,8 +588,8 @@ body{font-size:17px;line-height:1.6}
 .label{font-size:12px;letter-spacing:.16em;color:#5E5E5E}
 #langs{font-size:12px;gap:9px}
 #langs span{padding:6px 2px}
-.wm-scale{min-height:calc(100svh - 104px)}
-.gl3{height:46svh}
+.wm-scale{min-height:calc(100svh - 170px)}
+.gl3{height:min(38svh,330px)}
 #hero .scroll-cue{order:1;margin-top:0}
 .hero-sub{order:2;font-size:1.25rem;margin-top:7vh}
 .hero-meta{order:3;gap:10px;margin-top:5vh}
@@ -607,6 +608,10 @@ body{font-size:17px;line-height:1.6}
 .works-sub{font-size:1.1rem}
 #filozofie .fil-state{font-size:clamp(1.75rem,8vw,2.3rem);max-width:none}
 .fil-body p{font-size:1.15rem}
+.mani-state{text-align:center;max-width:none}
+.mani-box{margin:0 auto;max-width:min(440px,100%)}
+.mani-dots{max-width:none}
+.mani-intro{max-width:none;text-align:center}
 .works-cta{font-size:1.05rem;padding-bottom:4px}
 #fund-form input{font-size:1.05rem;padding:12px 2px}
 #fund-form button{font-size:12px;border:1px solid var(--ink);padding:13px 22px}
@@ -889,7 +894,7 @@ if(glGroups.some(g=>g.length)){
 glGroups.forEach(imgs=>imgs.forEach(im=>im.addEventListener('error',()=>{const p=im.parentNode;im.remove();})));
 const gidx=glGroups.map(()=>0);
 const advance=g=>{const imgs=glGroups[g];if(!imgs||imgs.length<2)return;imgs.forEach(im=>im.classList.remove('show'));gidx[g]=(gidx[g]+1)%imgs.length;imgs[gidx[g]].classList.add('show');};
-if(!reduced&&!isMobile){let g=0;setTimeout(()=>setInterval(()=>{advance(g%glGroups.length);g++;},1800),2530);}
+if(!reduced){const gi3=Math.max(0,gls.indexOf(g3));if(isMobile){setTimeout(()=>setInterval(()=>advance(gi3),3800),1800);}else{let g=0;setTimeout(()=>setInterval(()=>{advance(g%glGroups.length);g++;},1800),2530);}}
 }
 (function(){const svg=document.getElementById('shingles');if(!svg)return;const NS='http://www.w3.org/2000/svg';let i=0;
 const add=(x,y)=>{const r=document.createElementNS(NS,'rect');r.setAttribute('x',x);r.setAttribute('y',y);r.setAttribute('width',42);r.setAttribute('height',12);r.setAttribute('rx',1);r.style.transitionDelay=(i*0.012)+'s';i++;svg.appendChild(r);};
