@@ -73,25 +73,28 @@ svg.draw.go path{stroke-dashoffset:0 !important}
 #loader.words-out .stack span{opacity:0}
 #loader .stack svg{width:auto;height:56px;fill:#101010}
 @keyframes fadein{to{opacity:1}}
-header{position:fixed;top:0;left:0;right:0;z-index:90;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:22px var(--pad);mix-blend-mode:difference;color:#fff}
-header .brand{display:flex;align-items:center;gap:9px;font-size:1.05rem;flex:none}
-header .brand svg{width:11px;height:auto;fill:#fff;transform:translateY(1px)}
-header nav{display:flex;gap:26px}
-header nav a{font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;position:relative;padding:4px 0}
-header nav a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:#fff;transition:width .35s ease}
-header nav a:hover::after{width:100%}
-.hright{display:flex;align-items:center;gap:18px}
+header{position:fixed;top:0;left:0;right:0;z-index:90;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:14px;padding:15px var(--pad);background:rgba(255,255,255,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .4s ease;color:var(--ink)}
+header.sc{border-bottom-color:var(--hairline)}
+.ph-l{justify-self:start;display:flex;align-items:center;gap:26px}
+.ph-nav{display:flex;gap:26px;align-items:center}
+.ph-nav a,.ph-con{font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink)}
+.ph-kol{display:inline-flex;align-items:center;gap:8px}
+.ph-kol sup{font-family:var(--sans);font-size:8.5px;font-weight:600;letter-spacing:.06em;background:var(--ink);color:#fff;padding:3px 5.5px;line-height:1;transform:translateY(-1px)}
+.hl{position:relative}
+.hl::after{content:"";position:absolute;left:0;bottom:-3px;height:1px;width:0;background:var(--ink);transition:width .35s ease}
+a:hover .hl::after{width:100%}
+.ph-wm{justify-self:center;display:inline-flex;align-items:center;gap:9px;font-size:1.05rem;letter-spacing:-.03em;opacity:0;transform:translateY(7px);pointer-events:none;transition:opacity .55s ease,transform .55s cubic-bezier(.22,.8,.2,1)}
+.ph-wm svg{width:11px;height:auto;fill:var(--ink);transform:translateY(1px)}
+header.away .ph-wm,body.menu-open .ph-wm{opacity:1;transform:none;pointer-events:auto}
+.ph-r{justify-self:end;display:flex;align-items:center;gap:22px}
 #langs{display:flex;align-items:center;gap:7px;font-family:var(--sans);font-size:10.5px;font-weight:500;letter-spacing:.18em}
 #langs span{cursor:pointer;opacity:.45;transition:opacity .3s}
 #langs span.on{opacity:1}
 #langs i{font-style:normal;opacity:.35}
-#burger{display:none;align-items:center;gap:10px;padding:10px 0 10px 10px}
+#burger{display:none;align-items:center;gap:10px;padding:10px 10px 10px 0}
 #burger .mlab{font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;font-style:normal}
 #burger .bars{display:flex;flex-direction:column;gap:5px;font-style:normal}
-#burger .bars span{display:block;width:26px;height:1.5px;background:#fff;transition:.35s ease}
-body.menu-open header{mix-blend-mode:normal;color:var(--ink)}
-body.menu-open header .brand svg{fill:var(--ink)}
-body.menu-open #burger .bars span{background:var(--ink)}
+#burger .bars span{display:block;width:26px;height:1.5px;background:var(--ink);transition:.35s ease}
 body.menu-open #burger .bars span:nth-child(1){transform:translateY(3.2px) rotate(45deg)}
 body.menu-open #burger .bars span:nth-child(2){transform:translateY(-3.2px) rotate(-45deg)}
 #menu{position:fixed;inset:0;z-index:80;background:var(--wall);display:flex;flex-direction:column;justify-content:center;padding:0 var(--pad);clip-path:inset(0 0 100% 0);transition:clip-path .7s cubic-bezier(.77,0,.18,1)}
@@ -333,8 +336,11 @@ section{padding:clamp(80px,13vh,170px) var(--pad);scroll-margin-top:74px}
 .pg-hero .meta{grid-column:1/span 12;flex-direction:row;flex-wrap:wrap;gap:10px 24px}
 }
 @media (max-width:860px){
-header nav{display:none}
+.ph-nav{display:none}
 #burger{display:flex}
+.ph-con{display:none}
+.ph-wm{font-size:.95rem;gap:8px}
+header{padding:13px var(--pad)}
 .places-grid{grid-template-columns:1fr}
 .place + .place{border-left:none;border-top:1px solid var(--hairline)}
 .contact-grid{grid-template-columns:1fr 1fr}
@@ -603,18 +609,18 @@ body{font-size:17px;line-height:1.6}
 <div id="cur"></div>
 <div id="loader" aria-hidden="true"><div class="stack"><span>gallery</span><svg viewBox="0 0 127 160" aria-hidden="true"><path fill="#101010" d="M127 159.635V160H0V159.635C0.630679 156.712 2.52272 149.77 2.52272 142.706V17.2937C2.52272 10.2301 0.630679 3.28824 0 0.365362V0H127V0.365362C126.243 3.28824 124.351 10.2301 124.351 17.2937V142.706C124.351 149.77 126.243 156.712 127 159.635Z"/></svg><span>point</span></div></div>
 <header>
-  <a class="brand" href="#hero" aria-label="Gallery Point">
-    <span>gallery</span><svg viewBox="0 0 78 100" aria-hidden="true" style="width:11px"><path d="M 1.1425 2.7752 L 0.5879 0.4762 H 76.7526 L 76.5677 1.0509 L 76.1980 2.9668 L 75.8282 4.8826 L 75.4585 6.7984 L 75.0888 8.7142 L 74.7190 10.6300 L 74.3493 12.5458 L 73.9796 14.4616 L 73.6099 16.3774 V 84.1973 L 73.9796 86.1131 L 74.3493 88.0290 L 74.7190 89.9448 L 75.0888 91.8606 L 75.4585 93.7764 L 75.8282 95.6924 L 76.1980 97.6076 L 76.5677 99.5238 H 0.7727 L 1.1425 97.6076 L 1.5122 95.6924 L 1.8819 93.7764 L 2.2517 91.8606 L 2.6214 89.9448 L 2.9911 88.0290 L 3.3609 86.1131 L 3.7306 84.1973 V 16.3774 L 3.3609 14.4616 L 2.9911 12.5458 L 2.6214 10.6300 L 2.2517 8.7142 L 1.8819 6.7984 L 1.5122 4.8826 L 1.1425 2.7752 Z" fill="#fff"/></svg><span>point</span>
-  </a>
-  <div class="hright">
-  <nav aria-label="Main">
-    <a href="#kdo" data-i="n.kdo"></a>
-    <a href="#kolekce" data-i="n.kol"></a>
-    <a href="#investori" data-i="n.inv"></a>
-    <a href="#kontakt" data-i="n.kon"></a>
-  </nav>
-  <button id="langs" aria-label="Language"><span data-l="cs">CZ</span><i>/</i><span data-l="en">EN</span></button>
-  <button id="burger" aria-label="Menu" aria-expanded="false"><b class="mlab">Menu</b><i class="bars"><span></span><span></span></i></button>
+  <div class="ph-l">
+    <button id="burger" aria-label="Menu" aria-expanded="false"><b class="mlab">Menu</b><i class="bars"><span></span><span></span></i></button>
+    <nav class="ph-nav" aria-label="Main">
+      <a href="#kdo"><span class="hl" data-i="n.kdo"></span></a>
+      <a href="#kolekce" class="ph-kol"><span class="hl" data-i="n.kol"></span><sup>5</sup></a>
+      <a href="#investori"><span class="hl" data-i="n.inv"></span></a>
+    </nav>
+  </div>
+  <a class="ph-wm" href="#hero" aria-label="Gallery Point"><span>gallery</span><svg viewBox="0 0 78 100" aria-hidden="true"><path d="M 1.1425 2.7752 L 0.5879 0.4762 H 76.7526 L 76.5677 1.0509 L 76.1980 2.9668 L 75.8282 4.8826 L 75.4585 6.7984 L 75.0888 8.7142 L 74.7190 10.6300 L 74.3493 12.5458 L 73.9796 14.4616 L 73.6099 16.3774 V 84.1973 L 73.9796 86.1131 L 74.3493 88.0290 L 74.7190 89.9448 L 75.0888 91.8606 L 75.4585 93.7764 L 75.8282 95.6924 L 76.1980 97.6076 L 76.5677 99.5238 H 0.7727 L 1.1425 97.6076 L 1.5122 95.6924 L 1.8819 93.7764 L 2.2517 91.8606 L 2.6214 89.9448 L 2.9911 88.0290 L 3.3609 86.1131 L 3.7306 84.1973 V 16.3774 L 3.3609 14.4616 L 2.9911 12.5458 L 2.6214 10.6300 L 2.2517 8.7142 L 1.8819 6.7984 L 1.5122 4.8826 L 1.1425 2.7752 Z" fill="#101010"/></svg><span>point</span></a>
+  <div class="ph-r">
+    <button id="langs" aria-label="Language"><span data-l="cs">CZ</span><i>/</i><span data-l="en">EN</span></button>
+    <a class="ph-con" href="#kontakt"><span class="hl" data-i="n.kon"></span></a>
   </div>
 </header>
 <div id="menu" aria-hidden="true">
@@ -834,6 +840,10 @@ new IntersectionObserver((es,obs)=>{es.forEach(e=>{if(e.isIntersecting){svg.clas
 const burger=document.getElementById('burger');
 burger.addEventListener('click',()=>{const open=document.body.classList.toggle('menu-open');burger.setAttribute('aria-expanded',open);});
 document.querySelectorAll('#menu a').forEach(a=>a.addEventListener('click',()=>document.body.classList.remove('menu-open')));
+const hdr=document.querySelector('header');
+const hdrHero=document.getElementById('hero');
+const hdrSc=()=>{if(!hdr)return;hdr.classList.toggle('sc',scrollY>8);const h=hdrHero?hdrHero.offsetHeight:innerHeight;hdr.classList.toggle('away',scrollY>h-120);};
+hdrSc();addEventListener('scroll',hdrSc,{passive:true});addEventListener('resize',hdrSc,{passive:true});
 const cur=document.getElementById('cur');
 if(cur&&matchMedia('(pointer:fine)').matches&&!reduced){let x=innerWidth/2,y=innerHeight/2,tx=x,ty=y;
 addEventListener('mousemove',e=>{tx=e.clientX;ty=e.clientY;});
