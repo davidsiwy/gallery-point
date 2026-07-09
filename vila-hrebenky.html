@@ -104,6 +104,8 @@ a:hover .hl::after,a.hl:hover::after{width:100%}
 .sk .anno{position:absolute;right:7%;top:8%;transform:rotate(-6deg)}
 .psketch{width:100%;height:auto}
 .psketch path{stroke:#4A4038;stroke-width:2.4}
+.skimg{display:block;width:100%;height:auto;clip-path:inset(0 100% 0 0);transition:clip-path 1.9s cubic-bezier(.4,0,.2,1) .35s}
+.rv.on .skimg,.rv.on + * .skimg{clip-path:inset(0 0 0 0)}
 .sk .cap{display:block;margin-top:13px}
 .stages{list-style:none}
 .stages li{font-size:clamp(1.35rem,1.95vw,1.8rem);line-height:1.45;padding:8px 0;color:var(--faint);letter-spacing:-.02em;display:flex;align-items:baseline;gap:15px}
@@ -220,7 +222,7 @@ a:hover .hl::after,a.hl:hover::after{width:100%}
 <section class="pt-path">
   <span class="label" data-i="t.head"></span>
   <div class="sk rv">
-    <div class="spec-frame"><span class="anno" data-i="p.skanno"></span><svg class="psketch draw" viewBox="0 0 560 380" aria-hidden="true"><path d="M168 44 Q300 36 414 40"/><path d="M414 40 Q421 84 416 128"/><path d="M416 128 Q300 139 176 132"/><path d="M176 132 Q169 88 168 44"/><path d="M186 62 Q300 56 400 60"/><path d="M184 80 Q300 74 402 78"/><path d="M186 98 Q300 92 400 96"/><path d="M184 114 Q300 110 402 114"/><path d="M296 138 Q295 170 298 206"/><path d="M58 218 Q300 207 506 214"/><path d="M506 214 Q515 252 508 290"/><path d="M508 290 Q300 303 64 296"/><path d="M64 296 Q55 256 58 218"/><path d="M120 218 Q125 256 120 296"/><path d="M332 190 Q278 252 222 316"/><path d="M300 250 q9 -3 11 6 q2 9 -8 9 q-9 0 -7 -8"/></svg></div>
+    <div class="spec-frame"><span class="anno" data-i="p.skanno"></span><img class="skimg" loading="lazy" src="assets/hreb-sketch.jpg" alt="Vila Hřebenky · skica architekta" onerror="imgFail(this)"></div>
     <span class="label cap">Vila Hřebenky · No. 001</span>
   </div>
   <div class="rv" style="--d:.15s">
@@ -250,7 +252,7 @@ a:hover .hl::after,a.hl:hover::after{width:100%}
 <figure class="f-full rv"><div class="ph"><img loading="lazy" src="assets/hreb-08-1600.jpg" alt="" onerror="imgFail(this)"></div></figure>
 <figure class="f-half r rv"><div class="ph"><img loading="lazy" src="assets/hreb-09-1600.jpg" alt="" onerror="imgFail(this)"></div></figure>
 <figure class="f-full rv"><div class="ph"><img loading="lazy" src="assets/hreb-10-1600.jpg" alt="" onerror="imgFail(this)"></div></figure>
-<div class="pair rv"><div class="ph"><img loading="lazy" src="assets/hreb-11-1600.jpg" alt="Vila Hřebenky · Praha 5" onerror="imgFail(this)"></div><div class="spec-frame"><svg class="psketch draw" viewBox="0 0 560 380" aria-hidden="true"><path d="M168 44 Q300 36 414 40"/><path d="M414 40 Q421 84 416 128"/><path d="M416 128 Q300 139 176 132"/><path d="M176 132 Q169 88 168 44"/><path d="M186 62 Q300 56 400 60"/><path d="M184 80 Q300 74 402 78"/><path d="M186 98 Q300 92 400 96"/><path d="M184 114 Q300 110 402 114"/><path d="M296 138 Q295 170 298 206"/><path d="M58 218 Q300 207 506 214"/><path d="M506 214 Q515 252 508 290"/><path d="M508 290 Q300 303 64 296"/><path d="M64 296 Q55 256 58 218"/><path d="M120 218 Q125 256 120 296"/><path d="M332 190 Q278 252 222 316"/><path d="M300 250 q9 -3 11 6 q2 9 -8 9 q-9 0 -7 -8"/></svg></div></div></div>
+<div class="pair rv"><div class="ph"><img loading="lazy" src="assets/hreb-11-1600.jpg" alt="Vila Hřebenky · Praha 5" onerror="imgFail(this)"></div><div class="spec-frame"><img class="skimg" loading="lazy" src="assets/hreb-sketch.jpg" alt="Vila Hřebenky · skica architekta" onerror="imgFail(this)"></div></div></div>
 <a class="nextw rv" href="vila-podoli">
   <span class="nw-l" data-i="p.next"></span>
   <span class="nw-img"><span class="ph"><img loading="lazy" src="assets/branik-900.jpg" alt="Vila Podolí" onerror="imgFail(this)"></span></span>

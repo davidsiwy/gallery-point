@@ -104,6 +104,8 @@ a:hover .hl::after,a.hl:hover::after{width:100%}
 .sk .anno{position:absolute;right:7%;top:8%;transform:rotate(-6deg)}
 .psketch{width:100%;height:auto}
 .psketch path{stroke:#4A4038;stroke-width:2.4}
+.skimg{display:block;width:100%;height:auto;clip-path:inset(0 100% 0 0);transition:clip-path 1.9s cubic-bezier(.4,0,.2,1) .35s}
+.rv.on .skimg,.rv.on + * .skimg{clip-path:inset(0 0 0 0)}
 .sk .cap{display:block;margin-top:13px}
 .stages{list-style:none}
 .stages li{font-size:clamp(1.35rem,1.95vw,1.8rem);line-height:1.45;padding:8px 0;color:var(--faint);letter-spacing:-.02em;display:flex;align-items:baseline;gap:15px}
