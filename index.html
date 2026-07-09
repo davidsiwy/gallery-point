@@ -477,12 +477,12 @@ svg.draw path{stroke-dashoffset:0 !important}
 .mani-state .em .u{position:absolute;left:0;right:0;bottom:-.08em;height:.07em;pointer-events:none}
 .mani-state .em .u path{stroke:var(--brick);stroke-width:2.4;fill:none;stroke-linecap:round}
 .mani-r{position:relative}
-.mani-box{background:var(--stone);aspect-ratio:4/3;position:relative;display:flex;align-items:center;justify-content:center;padding:clamp(22px,4vw,52px);max-width:clamp(280px,34vw,460px)}
-.mani-box .mani-sketch{width:64%;height:auto}
-.mani-box .mani-sketch path{fill:none;stroke:var(--graphite);stroke-width:1.1}
+.mani-box{background:#fff;aspect-ratio:1584/672;position:relative;display:flex;align-items:center;justify-content:center;padding:0;max-width:clamp(280px,44vw,620px);overflow:hidden}
+.mani-skimg{display:block;width:100%;height:100%;object-fit:cover;clip-path:inset(0 100% 0 0);transition:clip-path 1.9s cubic-bezier(.4,0,.2,1) .35s}
+.rv.on .mani-skimg{clip-path:inset(0 0 0 0)}
 .mani-r > .mani-est{position:absolute;top:50%;right:0;transform:translateY(-50%)}
-.mani-box .anno{position:absolute;left:18px;bottom:14px;transform:rotate(-3deg)}
-.mani-intro{margin:clamp(22px,3vw,34px) 0 0 0;max-width:clamp(280px,34vw,460px)}
+.mani-box .anno{position:absolute;left:18px;bottom:14px;transform:rotate(-3deg);z-index:2}
+.mani-intro{margin:clamp(22px,3vw,34px) 0 0 0;max-width:clamp(280px,44vw,620px)}
 .mani-intro p{font-family:var(--sans);font-size:1.04rem;font-weight:340;line-height:1.7}
 .mani-intro p + p{margin-top:14px}
 .mani-dots{display:flex;justify-content:center;gap:7px;margin:16px 0 0;max-width:clamp(280px,34vw,460px)}
@@ -676,19 +676,7 @@ body{font-size:17px;line-height:1.6}
     <div class="mani-l rv"><p class="mani-state" data-i="kdo.big" data-html></p></div>
     <div class="mani-r">
       <div class="mani-box rv" style="--d:.08s">
-        <svg class="mani-sketch draw" viewBox="0 0 300 220" aria-hidden="true">
-          <path d="M70 46 Q150 38 230 44"/>
-          <path d="M66 62 Q150 55 234 60"/>
-          <path d="M63 78 Q150 72 236 76"/>
-          <path d="M61 94 Q150 89 237 92"/>
-          <path d="M60 110 Q150 106 238 108"/>
-          <path d="M44 140 Q150 130 256 138"/>
-          <path d="M256 138 Q262 156 257 174"/>
-          <path d="M257 174 Q150 184 48 176"/>
-          <path d="M48 176 Q42 158 44 140"/>
-          <path d="M118 142 Q124 158 119 176"/>
-          <path d="M150 150 q40 16 64 46"/>
-        </svg>
+        <img class="mani-skimg" loading="lazy" src="assets/mani-sketch.jpg" alt="Gallery Point · architektonická skica" onerror="imgFail(this)">
         <span class="anno" data-i="kdo.anno"></span>
       </div>
       <span class="mani-est label" data-i="hero.m3"></span>
