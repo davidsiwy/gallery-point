@@ -109,7 +109,10 @@ a:hover .hl::after,a.hl:hover::after{width:100%}
 .spec-frame.full{padding:0;background:#fff}
 .spec-frame .anno{z-index:2}
 .pair .spec-frame.full{padding:0}
-.pair .spec-frame.full .skimg{width:100%;height:100%;object-fit:contain}
+.pair.skpair{align-items:stretch}
+.pair.skpair .ph{aspect-ratio:auto;height:100%}
+.pair.skpair .spec-frame{padding:0;background:#fff;display:block}
+.pair.skpair .skimg{width:100%;height:auto;display:block}
 .sk .cap{display:block;margin-top:13px}
 .stages{list-style:none}
 .stages li{font-size:clamp(1.35rem,1.95vw,1.8rem);line-height:1.45;padding:8px 0;color:var(--faint);letter-spacing:-.02em;display:flex;align-items:baseline;gap:15px}
@@ -186,6 +189,7 @@ a:hover .hl::after,a.hl:hover::after{width:100%}
 .flow .f-half{width:100%}
 .flow .f-half .ph{aspect-ratio:4/3.6}
 .pair{grid-template-columns:1fr}
+.pair.skpair .ph{aspect-ratio:4/3.2;height:auto}
 .hx-grid,.eds{grid-template-columns:1fr;gap:26px}
 .nextw{grid-template-columns:1fr;gap:22px;padding:clamp(70px,10vh,110px) var(--pad)}
 .nextw .nw-img{max-width:340px}
